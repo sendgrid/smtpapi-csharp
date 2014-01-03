@@ -1,0 +1,9 @@
+Z:\SendGrid\xsmtpapi\Xsmtpapi\HeaderTests\obj\Debug\HeaderTests.csprojResolveAssemblyReference.cache
+Z:\SendGrid\xsmtpapi\Xsmtpapi\HeaderTests\bin\Debug\HeaderTests.dll
+Z:\SendGrid\xsmtpapi\Xsmtpapi\HeaderTests\bin\Debug\HeaderTests.pdb
+Z:\SendGrid\xsmtpapi\Xsmtpapi\HeaderTests\bin\Debug\nunit.framework.dll
+Z:\SendGrid\xsmtpapi\Xsmtpapi\HeaderTests\bin\Debug\Xsmtpapi.dll
+Z:\SendGrid\xsmtpapi\Xsmtpapi\HeaderTests\bin\Debug\Xsmtpapi.pdb
+Z:\SendGrid\xsmtpapi\Xsmtpapi\HeaderTests\bin\Debug\nunit.framework.xml
+Z:\SendGrid\xsmtpapi\Xsmtpapi\HeaderTests\obj\Debug\HeaderTests.dll
+Z:\SendGrid\xsmtpapi\Xsmtpapi\HeaderTests\obj\Debug\HeaderTests.pdb
