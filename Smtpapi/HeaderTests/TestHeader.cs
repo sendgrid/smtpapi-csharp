@@ -4,7 +4,7 @@ using System.Linq;
 using System.Net.Mail;
 using System.Text;
 using NUnit.Framework;
-using Xsmtpapi;
+using Smtpapi;
 
 namespace Tests
 {

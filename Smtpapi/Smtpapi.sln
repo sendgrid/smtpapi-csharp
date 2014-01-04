@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xsmtpapi", "Xsmtpapi\Xsmtpapi.csproj", "{314665CE-FB24-4984-9B0D-2C39218930F1}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeaderTests", "HeaderTests\HeaderTests.csproj", "{F9F61DE0-D1AF-4A1D-9D62-5C09B22AC31D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example", "Example\Example.csproj", "{3672A2E2-487F-475D-B40B-3B78634A43FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smtpapi", "Smtpapi\Smtpapi.csproj", "{314665CE-FB24-4984-9B0D-2C39218930F1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

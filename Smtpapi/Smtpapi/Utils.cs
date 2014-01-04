@@ -8,7 +8,7 @@ using System.Net.Mail;
 using System.Runtime.Serialization.Json;
 using System.Text;
 
-namespace Xsmtpapi
+namespace Smtpapi
 {
     public class Utils
     {

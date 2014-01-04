@@ -37,9 +37,9 @@
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\Xsmtpapi\Xsmtpapi.csproj">
+    <ProjectReference Include="..\Smtpapi\Smtpapi.csproj">
       <Project>{314665CE-FB24-4984-9B0D-2C39218930F1}</Project>
-      <Name>Xsmtpapi</Name>
+      <Name>Smtpapi</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

@@ -1,4 +1,0 @@
-Z:\SendGrid\xsmtpapi\Xsmtpapi\Xsmtpapi\bin\Debug\Xsmtpapi.dll
-Z:\SendGrid\xsmtpapi\Xsmtpapi\Xsmtpapi\bin\Debug\Xsmtpapi.pdb
-Z:\SendGrid\xsmtpapi\Xsmtpapi\Xsmtpapi\obj\Debug\Xsmtpapi.dll
-Z:\SendGrid\xsmtpapi\Xsmtpapi\Xsmtpapi\obj\Debug\Xsmtpapi.pdb

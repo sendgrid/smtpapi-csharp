@@ -2,7 +2,7 @@ using System;
 using System.Net.Mail;
 using System.Collections.Generic;
 using System.ComponentModel;
-using Xsmtpapi;
+using Smtpapi;
 
 namespace Example
 {

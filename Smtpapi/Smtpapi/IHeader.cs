@@ -4,7 +4,7 @@ using System.Linq;
 using System.Net.Mail;
 using System.Text;
 
-namespace Xsmtpapi
+namespace Smtpapi
 {
     /// <summary>
     /// Represents the additional functionality to add SendGrid specific mail headers

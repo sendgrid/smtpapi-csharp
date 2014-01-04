@@ -1,0 +1,14 @@
+/Users/brandonwest/SendGrid/xsmtpapi/Xsmtpapi/Example/obj/Debug/.NETFramework,Version=v4.0.AssemblyAttribute.cs
+/Users/brandonwest/SendGrid/xsmtpapi/Xsmtpapi/Example/bin/Debug/Example.exe.mdb
+/Users/brandonwest/SendGrid/xsmtpapi/Xsmtpapi/Example/bin/Debug/Example.exe
+/Users/brandonwest/SendGrid/xsmtpapi/Xsmtpapi/Example/obj/Debug/Example.exe
+/Users/brandonwest/SendGrid/xsmtpapi/Xsmtpapi/Example/obj/Debug/Example.exe.mdb
+/Users/brandonwest/SendGrid/xsmtpapi/Xsmtpapi/Example/bin/Debug/Xsmtpapi.dll
+/Users/brandonwest/SendGrid/xsmtpapi/Xsmtpapi/Example/bin/Debug/Xsmtpapi.dll.mdb
+/Users/brandonwest/SendGrid/xsmtpapi/Smtpapi/Example/obj/Debug/.NETFramework,Version=v4.0.AssemblyAttribute.cs
+/Users/brandonwest/SendGrid/xsmtpapi/Smtpapi/Example/bin/Debug/Example.exe.mdb
+/Users/brandonwest/SendGrid/xsmtpapi/Smtpapi/Example/bin/Debug/Example.exe
+/Users/brandonwest/SendGrid/xsmtpapi/Smtpapi/Example/obj/Debug/Example.exe
+/Users/brandonwest/SendGrid/xsmtpapi/Smtpapi/Example/obj/Debug/Example.exe.mdb
+/Users/brandonwest/SendGrid/xsmtpapi/Smtpapi/Example/bin/Debug/Xsmtpapi.dll
+/Users/brandonwest/SendGrid/xsmtpapi/Smtpapi/Example/bin/Debug/Xsmtpapi.dll.mdb

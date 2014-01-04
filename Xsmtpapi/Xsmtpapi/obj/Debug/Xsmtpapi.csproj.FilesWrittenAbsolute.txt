@@ -1,5 +1,0 @@
-/Users/brandonwest/SendGrid/xsmtpapi/Xsmtpapi/Xsmtpapi/obj/Debug/.NETFramework,Version=v4.0.AssemblyAttribute.cs
-/Users/brandonwest/SendGrid/xsmtpapi/Xsmtpapi/Xsmtpapi/bin/Debug/Xsmtpapi.dll.mdb
-/Users/brandonwest/SendGrid/xsmtpapi/Xsmtpapi/Xsmtpapi/bin/Debug/Xsmtpapi.dll
-/Users/brandonwest/SendGrid/xsmtpapi/Xsmtpapi/Xsmtpapi/obj/Debug/Xsmtpapi.dll
-/Users/brandonwest/SendGrid/xsmtpapi/Xsmtpapi/Xsmtpapi/obj/Debug/Xsmtpapi.dll.mdb
