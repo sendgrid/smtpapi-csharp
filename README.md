@@ -1,9 +1,9 @@
 smtpapi-csharp
 ==============
 
-This is a beta and method names are likely to change.
-
 Easily Build [SendGrid X-SMTPAPI Headers](http://sendgrid.com/docs/API_Reference/SMTP_API/index.html). 
+
+This is a beta and method names are likely to change.
 
 ```csharp
 using Xsmtpapi;
@@ -42,4 +42,4 @@ mail.Headers.Add( "X-SMTPAPI", xmstpapiJson );
  
 client.SendAsync(mail, null);
 ```
-For a more complete example, look at the include Example project.
+For a more complete example, look at the included [Example project](https://github.com/sendgrid/smtpapi-csharp/blob/master/Xsmtpapi/Example/Program.cs).
