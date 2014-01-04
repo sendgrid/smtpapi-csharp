@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xsmtpapi", "Xsmtpapi\Xsmtpa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeaderTests", "HeaderTests\HeaderTests.csproj", "{F9F61DE0-D1AF-4A1D-9D62-5C09B22AC31D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example", "Example\Example.csproj", "{3672A2E2-487F-475D-B40B-3B78634A43FF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,13 +17,17 @@ Global
 		{314665CE-FB24-4984-9B0D-2C39218930F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{314665CE-FB24-4984-9B0D-2C39218930F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{314665CE-FB24-4984-9B0D-2C39218930F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3672A2E2-487F-475D-B40B-3B78634A43FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3672A2E2-487F-475D-B40B-3B78634A43FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3672A2E2-487F-475D-B40B-3B78634A43FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3672A2E2-487F-475D-B40B-3B78634A43FF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F9F61DE0-D1AF-4A1D-9D62-5C09B22AC31D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F9F61DE0-D1AF-4A1D-9D62-5C09B22AC31D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F9F61DE0-D1AF-4A1D-9D62-5C09B22AC31D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F9F61DE0-D1AF-4A1D-9D62-5C09B22AC31D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Xsmtpapi\Xsmtpapi.csproj
+		StartupItem = Example\Example.csproj
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
