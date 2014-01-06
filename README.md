@@ -15,9 +15,9 @@ var uniqueArgs = new Dictionary<string,string> {
   { "chunky", "bacon"}
 };
 
-header.AddUniqueIdentifier(uniqueArgs);
+header.AddUniqueArgs(uniqueArgs);
 
-var xmstpapiJson = header.AsJson();
+var xmstpapiJson = header.JsonString();
 ```
 
 You can then use generated JSON in conjunction with your favorite SMTP library.

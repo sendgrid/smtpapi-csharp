@@ -78,7 +78,7 @@ namespace Smtpapi
             _settings.AddSetting(keys, value);
         }
 
-        public String AsJson()
+        public String JsonString()
         {
             if(_settings.IsEmpty()) return "";
             return _settings.ToJson();
