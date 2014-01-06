@@ -30,6 +30,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="Smtpapi">
+      <HintPath>..\..\..\..\projects\test\packages\smtpapi.1.0.0\lib\Smtpapi.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
@@ -37,9 +40,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\Smtpapi\Smtpapi.csproj">
-      <Project>{314665CE-FB24-4984-9B0D-2C39218930F1}</Project>
-      <Name>Smtpapi</Name>
-    </ProjectReference>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>

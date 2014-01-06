@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Mail;
@@ -86,6 +86,6 @@ namespace Smtpapi
         /// Converts the filter settings into a JSON string.
         /// </summary>
         /// <returns>String representation of the SendGrid headers</returns>
-        String AsJson();
+		String JsonString();
     }
 }

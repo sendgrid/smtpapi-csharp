@@ -44,7 +44,7 @@ namespace Example
 			};
 			header.AddUniqueArgs (uniqueArgs);
 
-			return header.AsJson ();
+			return header.JsonString ();
 		}
 
 		public static void Main (string[] args)
