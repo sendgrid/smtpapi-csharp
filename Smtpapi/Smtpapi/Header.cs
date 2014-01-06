@@ -7,7 +7,6 @@ namespace Smtpapi
 {
     public class Header : IHeader
     {
-        private const string SendgridHeader = "X-Smtpapi";
         private readonly HeaderSettingsNode _settings;
 
         public Header()
@@ -23,7 +22,7 @@ namespace Smtpapi
             }
         }
 
-        public void AddSubVal(string tag, IEnumerable<string> substitutions)
+        public void AddSubstitution(string tag, IEnumerable<string> substitutions)
         {
             var keys = new List<String> {"sub", tag};
             _settings.AddArray(keys, substitutions);
@@ -35,12 +34,12 @@ namespace Smtpapi
             _settings.AddSetting(keys, text);
         }
 
-        public void AddTo(IEnumerable<string> addresses)
+		public void SetTo(IEnumerable<string> addresses)
         {
             _settings.AddArray(new List<string> { "to" }, addresses);
         }
 
-        public void AddUniqueIdentifier(IDictionary<string, string> identifiers)
+        public void AddUniqueArgs(IDictionary<string, string> identifiers)
         {
             foreach (var key in identifiers.Keys)
             {
@@ -63,12 +62,12 @@ namespace Smtpapi
             _settings.AddArray(keys, categories);
         }
 
-        public void Enable(string filter)
+        public void EnableFilter(string filter)
         {
             AddFilterSetting(filter, new List<string>(){ "enable" }, "1");
         }
 
-        public void Disable(string filter)
+        public void DisableFilter(string filter)
         {
             AddFilterSetting(filter, new List<string>(){"enable"}, "0");
         }
@@ -77,11 +76,6 @@ namespace Smtpapi
         {
             var keys = new List<string>() {"filters", filter, "settings" }.Concat(settings).ToList();
             _settings.AddSetting(keys, value);
-        }
-
-        public void AddHeader(MailMessage mime)
-        {
-            mime.Headers.Add(SendgridHeader, AsJson());
         }
 
         public String AsJson()

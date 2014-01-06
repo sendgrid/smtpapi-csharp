@@ -42,7 +42,7 @@ namespace Example
 					"bacon"
 				}
 			};
-			header.AddUniqueIdentifier (uniqueArgs);
+			header.AddUniqueArgs (uniqueArgs);
 
 			return header.AsJson ();
 		}
@@ -81,6 +81,7 @@ namespace Example
 			Console.WriteLine ("Enter an email address to which a test email will be sent:");
 			string email = Console.ReadLine ();
 
+			// Remember that MIME To's are different than SMTPAPI Header To's!
 			mail.To.Add(new MailAddress(email));
 
 			client.SendAsync(mail,state);
