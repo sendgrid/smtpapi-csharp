@@ -42,4 +42,4 @@ mail.Headers.Add( "X-SMTPAPI", xmstpapiJson );
  
 client.SendAsync(mail, null);
 ```
-For a more complete example, look at the included [Example project](https://github.com/sendgrid/smtpapi-csharp/blob/master/Xsmtpapi/Example/Program.cs).
+For a more complete example, look at the included [Example project](https://github.com/sendgrid/smtpapi-csharp/blob/master/Smtpapi/Example/Program.cs).
