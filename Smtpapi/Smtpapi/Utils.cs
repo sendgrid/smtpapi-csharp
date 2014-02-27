@@ -1,31 +1,44 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.IO.Pipes;
 using System.Linq;
-using System.Net;
-using System.Net.Mail;
 using System.Runtime.Serialization.Json;
 using System.Text;
 
-namespace Smtpapi
+namespace SendGrid.SmtpApi
 {
+
+    /// <summary>
+    /// 
+    /// </summary>
     public class Utils
     {
-        public static string Serialize<T>(T obj)
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="objectToSerialize"></param>
+        /// <returns></returns>
+        public static string Serialize<T>(T objectToSerialize)
         {
-            var serializer = new DataContractJsonSerializer(obj.GetType());
+            var serializer = new DataContractJsonSerializer(objectToSerialize.GetType());
             using (var stream = new MemoryStream())
             {
-                serializer.WriteObject(stream, obj);
+                serializer.WriteObject(stream, objectToSerialize);
                 var jsonData = Encoding.UTF8.GetString(stream.ToArray(), 0, (int)stream.Length);
                 return jsonData;                
             }
         }
 
-        public static string SerializeDictionary(IDictionary<String, String> dic)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dictionaryToSerialize"></param>
+        /// <returns></returns>
+        public static string SerializeDictionary(IDictionary<String, String> dictionaryToSerialize)
         {
-            return "{"+String.Join(",",dic.Select(kvp => Serialize(kvp.Key) + ":" + Serialize(kvp.Value)))+"}";
+            return "{"+String.Join(",",dictionaryToSerialize.Select(kvp => Serialize(kvp.Key) + ":" + Serialize(kvp.Value)))+"}";
         }
     }
 }
