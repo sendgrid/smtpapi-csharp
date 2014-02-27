@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Mail;
-using System.Text;
+﻿using System.Collections.Generic;
 using NUnit.Framework;
-using Smtpapi;
 
-namespace Tests
+namespace SendGrid.SmtpApi.HeaderTests
 {
     [TestFixture]
     public class TestHeader

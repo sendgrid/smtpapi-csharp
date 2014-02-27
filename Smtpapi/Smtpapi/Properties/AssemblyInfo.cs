@@ -1,30 +1,19 @@
 ﻿using System.Reflection;
 using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-
-
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Smtpapi")]
+[assembly: AssemblyTitle("SendGrid.SmtpApi")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Smtpapi")]
-[assembly: AssemblyCopyright("Copyright ©  2014")]
+[assembly: AssemblyProduct("SendGrid SmtpApi")]
+[assembly: AssemblyCopyright("Copyright © 2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
-// Setting ComVisible to false makes the types in this assembly not visible 
-// to COM components.  If you need to access a type in this assembly from 
-// COM, set the ComVisible attribute to true on that type.
-[assembly: ComVisible(false)]
-
-[assembly:InternalsVisibleTo("HeaderTests")]
-
-// The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("8c0370f9-d86d-48ed-8d58-33d596827aa6")]
+[assembly: InternalsVisibleTo("SendGrid.SmtpApi.HeaderTests")]
 
 // Version information for an assembly consists of the following four values:
 //
