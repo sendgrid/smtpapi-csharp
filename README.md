@@ -6,7 +6,7 @@ Easily Build [SendGrid X-SMTPAPI Headers](http://sendgrid.com/docs/API_Reference
 This is a beta and method names are likely to change.
 
 ```csharp
-using Smtpapi;
+using SendGrid.SmtpApi;
 
 var header = new Header();
 
