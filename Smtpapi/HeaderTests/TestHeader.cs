@@ -101,5 +101,14 @@ namespace SendGrid.SmtpApi.HeaderTests
             result = test.JsonString();
             Assert.AreEqual("{\"sub\" : {\"foo\" : [\"a\", \"b\"]}}", result);
         }
+
+        [Test]
+        public void TestJsonStringUnicode()
+        {
+            var test = new Header();
+            test.SetCategories(new List<string>{"カテゴリUnicode", "カテゴリ2Unicode"});
+            var result = test.JsonString();
+            Assert.AreEqual("{\"category\" : [\"\\u30ab\\u30c6\\u30b4\\u30eaUnicode\", \"\\u30ab\\u30c6\\u30b4\\u30ea2Unicode\"]}", result);
+        }
     }
 }

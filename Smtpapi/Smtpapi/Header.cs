@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace SendGrid.SmtpApi
 {
@@ -115,7 +116,7 @@ namespace SendGrid.SmtpApi
         /// <returns>String representation of the SendGrid headers</returns>
         public string JsonString()
         {
-            return _settings.IsEmpty() ? "" : _settings.ToJson();
+            return _settings.IsEmpty() ? "" : escapeUnicode(_settings.ToJson());
         }
 
         /// <summary>
@@ -153,5 +154,27 @@ namespace SendGrid.SmtpApi
 
         #endregion
 
+        #region Private Method
+        /// <summary>
+        /// This escapes Unicode.
+        /// "我" will be converted to "\\u6211".
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        private string escapeUnicode(string json) {
+            StringBuilder sb = new StringBuilder();
+            foreach( char c in json ) {
+                if( c > 127 ) {
+                    // This character is too big for ASCII
+                    string encodedValue = "\\u" + ((int) c).ToString( "x4" );
+                    sb.Append( encodedValue );
+                }
+                else {
+                    sb.Append( c );
+                }
+            }
+            return sb.ToString();
+        }
+        #endregion
     }
 }
