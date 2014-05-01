@@ -123,7 +123,7 @@ publish/
 ## TODO: If you have NuGet Package Restore enabled, uncomment the next line
 packages/
 ## TODO: If the tool you use requires repositories.config, also uncomment the next line
-#!packages/repositories.config
+!packages/repositories.config
 
 # Windows Azure Build Output
 csx/
@@ -180,5 +180,4 @@ Desktop.ini
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
 
-Smtpapi/packages/NUnit.2.6.3/license.txt
-Smtpapi/packages/NUnit.2.6.3/license.txt
+*.tss
