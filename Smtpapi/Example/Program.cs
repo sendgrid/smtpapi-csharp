@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Net;
 using System.Net.Mail;
+using System.Text;
 
 namespace SendGrid.SmtpApi.Example
 {
@@ -43,6 +44,11 @@ namespace SendGrid.SmtpApi.Example
 				{
 					"chunky",
 					"bacon"
+				},
+				{
+					// UTF8 encoding test
+					Encoding.UTF8.GetString(Encoding.Default.GetBytes("dead")),
+					Encoding.UTF8.GetString(Encoding.Default.GetBytes("beef"))
 				}
 			};
 			header.AddUniqueArgs(uniqueArgs);

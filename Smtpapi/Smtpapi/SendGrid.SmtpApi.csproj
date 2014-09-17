@@ -49,7 +49,6 @@
     <Compile Include="HeaderSettingsNode.cs" />
     <Compile Include="IHeader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

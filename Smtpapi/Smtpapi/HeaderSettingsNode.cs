@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Newtonsoft.Json;
 
 namespace SendGrid.SmtpApi
 {
@@ -13,6 +14,11 @@ namespace SendGrid.SmtpApi
 		private readonly Dictionary<string, HeaderSettingsNode> _branches;
 		private IEnumerable<string> _array;
 		private String _leaf;
+
+		private readonly JsonSerializerSettings _jsonSerializerSettings = new JsonSerializerSettings
+		{
+			StringEscapeHandling = StringEscapeHandling.EscapeNonAscii
+		};
 
 		#endregion
 
@@ -100,15 +106,15 @@ namespace SendGrid.SmtpApi
 
 		public String ToJson()
 		{
-
-
 			if (_branches.Count > 0)
-				return "{" + String.Join(",", _branches.Keys.Select(k => Utils.Serialize(k) + " : " + _branches[k].ToJson())) + "}";
+				return JsonConvert.SerializeObject(_branches, _jsonSerializerSettings);
+
 			if (_leaf != null)
-				return Utils.Serialize(_leaf);
-			if (_array != null)
-				return "[" + String.Join(", ", _array.Select(Utils.Serialize)) + "]";
-			return "{}";
+				return JsonConvert.SerializeObject(_leaf, _jsonSerializerSettings);
+
+			return _array != null
+				? JsonConvert.SerializeObject(_array, _jsonSerializerSettings)
+				: JsonConvert.SerializeObject(new object(), _jsonSerializerSettings);
 		}
 
 		public bool IsEmpty()
