@@ -4,13 +4,10 @@ using System.Linq;
 
 namespace SendGrid.SmtpApi
 {
-
     /// <summary>
-    /// 
     /// </summary>
     internal class HeaderSettingsNode
     {
-
         #region Private Members
 
         private readonly Dictionary<string, HeaderSettingsNode> _branches;
@@ -35,11 +32,11 @@ namespace SendGrid.SmtpApi
                 if (_leaf != null || _array != null)
                     throw new ArgumentException("Attempt to overwrite setting");
 
-                var key = keys.First();
+                string key = keys.First();
                 if (!_branches.ContainsKey(key))
                     _branches[key] = new HeaderSettingsNode();
 
-                var remainingKeys = keys.Skip(1).ToList();
+                List<string> remainingKeys = keys.Skip(1).ToList();
                 _branches[key].AddArray(remainingKeys, value);
             }
         }
@@ -55,11 +52,11 @@ namespace SendGrid.SmtpApi
                 if (_leaf != null || _array != null)
                     throw new ArgumentException("Attempt to overwrite setting");
 
-                var key = keys.First();
+                string key = keys.First();
                 if (!_branches.ContainsKey(key))
                     _branches[key] = new HeaderSettingsNode();
 
-                var remainingKeys = keys.Skip(1).ToList();
+                List<string> remainingKeys = keys.Skip(1).ToList();
                 _branches[key].AddSetting(remainingKeys, value);
             }
         }
@@ -73,10 +70,10 @@ namespace SendGrid.SmtpApi
         {
             if (keys.Count == 0)
                 return _leaf;
-            var key = keys.First();
+            string key = keys.First();
             if (!_branches.ContainsKey(key))
                 throw new ArgumentException("Bad key path!");
-            var remainingKeys = keys.Skip(1).ToList();
+            List<string> remainingKeys = keys.Skip(1).ToList();
             return _branches[key].GetSetting(remainingKeys);
         }
 
@@ -89,10 +86,10 @@ namespace SendGrid.SmtpApi
         {
             if (keys.Count == 0)
                 return _array;
-            var key = keys.First();
+            string key = keys.First();
             if (!_branches.ContainsKey(key))
                 throw new ArgumentException("Bad key path!");
-            var remainingKeys = keys.Skip(1).ToList();
+            List<string> remainingKeys = keys.Skip(1).ToList();
             return _branches[key].GetArray(remainingKeys);
         }
 
@@ -103,9 +100,11 @@ namespace SendGrid.SmtpApi
 
         public String ToJson()
         {
-            var json = "";
+            string json = "";
             if (_branches.Count > 0)
-                json = "{" + String.Join(",", _branches.Keys.Select(k => Utils.Serialize(k) + " : " + _branches[k].ToJson())) + "}";
+                json = "{" +
+                       String.Join(",", _branches.Keys.Select(k => Utils.Serialize(k) + " : " + _branches[k].ToJson())) +
+                       "}";
             if (_leaf != null)
                 json = Utils.Serialize(_leaf);
             if (_array != null)
@@ -113,7 +112,7 @@ namespace SendGrid.SmtpApi
 
             if (json.Length > 0)
                 return Utils.EncodeNonAsciiCharacters(json);
-            
+
             return "{}";
         }
 
