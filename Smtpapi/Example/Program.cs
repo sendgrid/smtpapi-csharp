@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Net;
@@ -53,6 +53,8 @@ namespace SendGrid.SmtpApi.Example
 			};
 			header.AddUniqueArgs(uniqueArgs);
 
+            var subs = new List<String>() {"私はラーメンが大好き"};
+            header.AddSubstitution("%tag%",subs);
 			return header.JsonString();
 		}
 
@@ -80,12 +82,13 @@ namespace SendGrid.SmtpApi.Example
 			var mail = new MailMessage
 			{
 				From = new MailAddress("please-reply@example.com"),
-				Subject = "Good Choice Signing Up for Our Service!",
-				Body = "Hi there. Thanks for signing up for Appsterify.ly. It's disruptive!"
+				Subject = "Good Choice Signing Up for Our Service!.",
+                Body = "Hi there. Thanks for signing up for Appsterify.ly. It's disruptive! %tag%"
 			};
 
 			// add the custom header that we built above
 			mail.Headers.Add("X-SMTPAPI", xmstpapiJson);
+		    mail.BodyEncoding = Encoding.UTF8;
 
 			//async event handler
 			client.SendCompleted += SendCompletedCallback;
