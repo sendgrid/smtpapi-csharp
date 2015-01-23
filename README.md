@@ -42,4 +42,25 @@ mail.Headers.Add( "X-SMTPAPI", xmstpapiJson );
  
 client.SendAsync(mail, null);
 ```
+If you want to add multiple recipients to the X-SMTPAPI header for a mail merge type send, you can do something like the following:
+```csharp
+var header = new Header();
+
+var recipients = new List<String> {"a@example.com", "b@exampe.com", "c@example.com"};
+header.SetTo(recipients);
+
+var subs = new List<String> {"A","B","C"};
+header.AddSubstitution("%name%", subs);
+
+var mail = new MailMessage
+{
+    From = new MailAddress("please-reply@example.com"),
+    Subject = "Welcome",
+    Body = "Hi there %name%"
+};
+
+// add the custom header that we built above
+mail.Headers.Add("X-SMTPAPI", header.JsonString());
+```
+
 For a more complete example, look at the included [Example project](https://github.com/sendgrid/smtpapi-csharp/blob/master/Smtpapi/Example/Program.cs).
