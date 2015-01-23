@@ -55,6 +55,7 @@ namespace SendGrid.SmtpApi.Example
 
             var subs = new List<String> {"私はラーメンが大好き"};
             header.AddSubstitution("%tag%", subs);
+
             return header.JsonString();
         }
 
