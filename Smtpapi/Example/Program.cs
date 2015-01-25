@@ -1,18 +1,20 @@
-using System;
-using System.Net.Mail;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using SendGrid.SmtpApi;
+using System.Net;
+using System.Net.Mail;
+using System.Text;
 
-namespace Example
+namespace SendGrid.SmtpApi.Example
 {
-    class MainClass
+    internal class MainClass
     {
-        static bool mailSent = false;
+        private static bool _mailSent;
+
         private static void SendCompletedCallback(object sender, AsyncCompletedEventArgs e)
         {
             // Get the unique identifier for this asynchronous operation.
-            String token = (string)e.UserState;
+            var token = (string) e.UserState;
 
             if (e.Cancelled)
             {
@@ -20,44 +22,55 @@ namespace Example
             }
             if (e.Error != null)
             {
-                Console.WriteLine("[{0}] {1}", token, e.Error.ToString());
+                Console.WriteLine("[{0}] {1}", token, e.Error);
             }
             else
             {
                 Console.WriteLine("Message sent.");
             }
-            mailSent = true;
+            _mailSent = true;
         }
 
-        static string XsmtpapiHeaderAsJson()
+        private static string XsmtpapiHeaderAsJson()
         {
             var header = new Header();
 
-            var uniqueArgs = new Dictionary<string, string> {
-				{
-					"foo",
-					"bar"
-				},
-				{
-					"chunky",
-					"bacon"
-				}
-			};
+            var uniqueArgs = new Dictionary<string, string>
+            {
+                {
+                    "foo",
+                    "bar"
+                },
+                {
+                    "chunky",
+                    "bacon"
+                },
+                {
+                    // UTF8 encoding test
+                    Encoding.UTF8.GetString(Encoding.Default.GetBytes("dead")),
+                    Encoding.UTF8.GetString(Encoding.Default.GetBytes("beef"))
+                }
+            };
             header.AddUniqueArgs(uniqueArgs);
+
+            var subs = new List<String> {"私はラーメンが大好き"};
+            header.AddSubstitution("%tag%", subs);
 
             return header.JsonString();
         }
 
         public static void Main(string[] args)
         {
-            var xmstpapiJson = XsmtpapiHeaderAsJson();
+            string xmstpapiJson = XsmtpapiHeaderAsJson();
 
-            SmtpClient client = new SmtpClient();
-            client.Port = 587;
-            client.Host = "smtp.sendgrid.net";
-            client.Timeout = 10000;
-            client.DeliveryMethod = SmtpDeliveryMethod.Network;
-            client.UseDefaultCredentials = false;
+            var client = new SmtpClient
+            {
+                Port = 587,
+                Host = "smtp.sendgrid.net",
+                Timeout = 10000,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                UseDefaultCredentials = false
+            };
 
             Console.WriteLine("Enter your SendGrid username:");
             string username = Console.ReadLine();
@@ -65,34 +78,40 @@ namespace Example
             Console.WriteLine("Enter your SendGrid password (warning: password will be visible):");
             string password = Console.ReadLine();
 
-            client.Credentials = new System.Net.NetworkCredential(username, password);
+            client.Credentials = new NetworkCredential(username, password);
 
-            MailMessage mail = new MailMessage();
-            mail.From = new MailAddress("please-reply@example.com");
-            mail.Subject = "Good Choice Signing Up for Our Service!";
-            mail.Body = "Hi there. Thanks for signing up for Appsterify.ly. It's disruptive!";
+            var mail = new MailMessage
+            {
+                From = new MailAddress("please-reply@example.com"),
+                Subject = "Good Choice Signing Up for Our Service!.",
+                Body = "Hi there. Thanks for signing up for Appsterify.ly. It's disruptive! %tag%"
+            };
 
             // add the custom header that we built above
             mail.Headers.Add("X-SMTPAPI", xmstpapiJson);
+            mail.BodyEncoding = Encoding.UTF8;
 
             //async event handler
-            client.SendCompleted += new SendCompletedEventHandler(SendCompletedCallback);
-            string state = "test1";
+            client.SendCompleted += SendCompletedCallback;
+            const string state = "test1";
 
             Console.WriteLine("Enter an email address to which a test email will be sent:");
             string email = Console.ReadLine();
 
-            // Remember that MIME To's are different than SMTPAPI Header To's!
-            mail.To.Add(new MailAddress(email));
-
-            client.SendAsync(mail, state);
-
-            Console.WriteLine("Sending message... press c to cancel, or wait for completion. Press any other key to exit.");
-            string answer = Console.ReadLine();
-
-            if (answer.StartsWith("c") && mailSent == false)
+            if (email != null)
             {
-                client.SendAsyncCancel();
+                // Remember that MIME To's are different than SMTPAPI Header To's!
+                mail.To.Add(new MailAddress(email));
+                client.SendAsync(mail, state);
+
+                Console.WriteLine(
+                    "Sending message... press c to cancel, or wait for completion. Press any other key to exit.");
+                string answer = Console.ReadLine();
+
+                if (answer != null && answer.StartsWith("c") && _mailSent == false)
+                {
+                    client.SendAsyncCancel();
+                }
             }
 
             mail.Dispose();
