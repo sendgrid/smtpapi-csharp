@@ -18,6 +18,9 @@ namespace SendGrid.SmtpApi
         /// <returns></returns>
         public static string Serialize<T>(T objectToSerialize)
         {
+            if (objectToSerialize == null)
+                throw new ArgumentNullException("A key or value in your X-SMTPAPI header is null.");
+
             var serializer = new DataContractJsonSerializer(objectToSerialize.GetType());
             using (var stream = new MemoryStream())
             {
@@ -34,7 +37,7 @@ namespace SendGrid.SmtpApi
         public static string SerializeDictionary(IDictionary<String, String> dictionaryToSerialize)
         {
             return "{" +
-                   String.Join(",", dictionaryToSerialize.Select(kvp => Serialize(kvp.Key) + ":" + Serialize(kvp.Value))) +
+                String.Join(",", dictionaryToSerialize.Select(kvp => Serialize(kvp.Key == null ? "" : kvp.Key ) + ":" + Serialize(kvp.Value == null ? "" : kvp.Value))) +
                    "}";
         }
 

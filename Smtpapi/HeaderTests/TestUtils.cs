@@ -33,6 +33,22 @@ namespace SendGrid.SmtpApi.HeaderTests
         }
 
         [Test]
+        [ExpectedException("System.ArgumentNullException")]
+        public void TestSerializeNullThrowsException()
+        {
+            string test = null;
+            Utils.Serialize(test);
+        }
+
+        [Test]
+        [ExpectedException("System.ArgumentNullException")]
+        public void TestSerializeNullKeyThrowsException()
+        {
+            var test = new Dictionary<string,string>{{null, "test"}};
+            Utils.Serialize(test);
+        }
+
+        [Test]
         public void TestEncodeNonAsciiCharacters()
         {
             var test = "私はラーメンが大好き";
