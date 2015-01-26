@@ -3,7 +3,7 @@ smtpapi-csharp
 
 Easily Build [SendGrid X-SMTPAPI Headers](http://sendgrid.com/docs/API_Reference/SMTP_API/index.html). 
 
-This is a beta and method names are likely to change.
+See the [changelog](https://github.com/sendgrid/smtpapi-csharp/blob/master/CHANGELOG.md) for release notes.
 
 ```csharp
 using SendGrid.SmtpApi;
