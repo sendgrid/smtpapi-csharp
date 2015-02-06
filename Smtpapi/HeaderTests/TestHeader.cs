@@ -106,7 +106,7 @@ namespace SendGrid.SmtpApi.HeaderTests
             var test = new Header();
             test.SetASMGroupID(123);
             string result = test.JsonString();
-            Assert.AreEqual("{\asm_group_id\": 123", result);
+            Assert.AreEqual("{\"asm_group_id\" : 123}", result);
         }
     }
 }
