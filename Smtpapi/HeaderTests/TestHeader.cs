@@ -99,5 +99,14 @@ namespace SendGrid.SmtpApi.HeaderTests
             string result = test.JsonString();
             Assert.AreEqual("{\"to\" : [\"joe@example.com\", \"jane@example.com\"]}", result);
         }
+
+        [Test]
+        public void TestSetASMGroupID()
+        {
+            var test = new Header();
+            test.SetASMGroupID(123);
+            string result = test.JsonString();
+            Assert.AreEqual("{\asm_group_id\": 123", result);
+        }
     }
 }
