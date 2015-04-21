@@ -147,6 +147,17 @@ namespace SendGrid.SmtpApi
             _settings.AddArray(new List<string> {"to"}, addresses);
         }
 
+        /// <summary>
+        ///     This sets the ASM Group ID for this email.  You can find further documentation about ASM here:
+        ///     https://sendgrid.com/docs/API_Reference/Web_API_v3/Advanced_Suppression_Manager/index.html
+        /// </summary>
+        /// <param name="id">ASM group applied to the message</param>
+        public void SetASMGroupID(int id)
+        {
+            var keys = new List<string> { "asm_group_id" };
+            _settings.AddSetting(keys, id);
+        }
+
         #endregion
     }
 }

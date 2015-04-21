@@ -12,7 +12,7 @@ namespace SendGrid.SmtpApi
 
         private readonly Dictionary<string, HeaderSettingsNode> _branches;
         private IEnumerable<string> _array;
-        private String _leaf;
+        private object _leaf;
 
         #endregion
 
@@ -41,7 +41,7 @@ namespace SendGrid.SmtpApi
             }
         }
 
-        public void AddSetting(List<String> keys, String value)
+        public void AddSetting(List<String> keys, object value)
         {
             if (keys.Count == 0)
             {
@@ -61,12 +61,12 @@ namespace SendGrid.SmtpApi
             }
         }
 
-        public String GetSetting(params String[] keys)
+        public object GetSetting(params String[] keys)
         {
             return GetSetting(keys.ToList());
         }
 
-        public String GetSetting(List<String> keys)
+        public object GetSetting(List<String> keys)
         {
             if (keys.Count == 0)
                 return _leaf;
@@ -93,7 +93,7 @@ namespace SendGrid.SmtpApi
             return _branches[key].GetArray(remainingKeys);
         }
 
-        public String GetLeaf()
+        public object GetLeaf()
         {
             return _leaf;
         }
