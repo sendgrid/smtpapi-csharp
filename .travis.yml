@@ -1,2 +1,2 @@
 language: csharp
-solution: smtpapi/SendGrid.SmtpApi.sln
+solution: Smtpapi/SendGrid.SmtpApi.sln
