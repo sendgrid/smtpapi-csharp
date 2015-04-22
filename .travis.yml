@@ -10,3 +10,8 @@ notifications:
   hipchat:
     rooms:
       secure: VaTthCHCVxkF38/B+nvfMQs0T/G2eG1OeA0sgIY8qeesvU4TWy8vXxKFPSW1GriagEUN0IU3bGHxGHAYAs6wOwGPx9eJtNcBTl2TigmCEiulBHBm63U34rCNhzQIKjY+hsnD4GeVbjOIbyqpnSrWRqOtzN5xhsY6kcqfbG9Fyk8=
+    template:
+    - '<a href="https://travis-ci.org/%{repository}/builds/%{build_id}">%{repository}
+      Build %{build_number}</a> on branch <i>%{branch}</i> by %{author}: <strong>%{message}</strong>
+      <a href="https://github.com/%{repository}/commits/%{commit}">View on GitHub</a>'
+    format: html
