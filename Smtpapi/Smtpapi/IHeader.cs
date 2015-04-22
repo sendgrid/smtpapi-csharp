@@ -90,6 +90,13 @@ namespace SendGrid.SmtpApi
         ///     https://sendgrid.com/docs/API_Reference/Web_API_v3/Advanced_Suppression_Manager/index.html
         /// </summary>
         /// <param name="id">ASM group applied to the message</param>
-        void SetASMGroupID(int id);
+        void SetAsmGroupId(int id);
+
+        /// <summary>
+        ///     This sets the IP Pool for this email. You can find further documentation about IP Pools here:
+        ///     https://sendgrid.com/docs/API_Reference/Web_API_v3/IP_Management/ip_pools.html
+        /// </summary>
+        /// <param name="pool">Name of the IP Pool with which to send the message. </param>
+        void SetIpPool(string pool);
     }
 }

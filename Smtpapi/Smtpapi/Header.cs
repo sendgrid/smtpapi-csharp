@@ -152,10 +152,16 @@ namespace SendGrid.SmtpApi
         ///     https://sendgrid.com/docs/API_Reference/Web_API_v3/Advanced_Suppression_Manager/index.html
         /// </summary>
         /// <param name="id">ASM group applied to the message</param>
-        public void SetASMGroupID(int id)
+        public void SetAsmGroupId(int id)
         {
             var keys = new List<string> { "asm_group_id" };
             _settings.AddSetting(keys, id);
+        }
+
+        public void SetIpPool(string pool)
+        {
+            var keys = new List<string> { "ip_pool" };
+            _settings.AddSetting(keys, pool);
         }
 
         #endregion

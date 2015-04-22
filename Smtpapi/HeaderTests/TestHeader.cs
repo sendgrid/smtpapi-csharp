@@ -101,12 +101,21 @@ namespace SendGrid.SmtpApi.HeaderTests
         }
 
         [Test]
-        public void TestSetASMGroupID()
+        public void TestSetAsmGroupId()
         {
             var test = new Header();
-            test.SetASMGroupID(123);
+            test.SetAsmGroupId(123);
             string result = test.JsonString();
             Assert.AreEqual("{\"asm_group_id\" : 123}", result);
+        }
+
+        [Test]
+        public void TestSetIpPool()
+        {
+            var test = new Header();
+            test.SetIpPool("test_pool");
+            string result = test.JsonString();
+            Assert.AreEqual("{\"ip_pool\" : \"test_pool\"}", result);
         }
     }
 }
