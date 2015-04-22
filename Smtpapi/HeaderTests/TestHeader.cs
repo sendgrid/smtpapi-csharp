@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using NUnit.Framework;
 
 namespace SendGrid.SmtpApi.HeaderTests
@@ -116,6 +117,25 @@ namespace SendGrid.SmtpApi.HeaderTests
             test.SetIpPool("test_pool");
             string result = test.JsonString();
             Assert.AreEqual("{\"ip_pool\" : \"test_pool\"}", result);
+        }
+
+        [Test]
+        public void TestSetSendAt()
+        {
+            var test = new Header();
+            var now = DateTime.UtcNow;
+            test.SetSendAt(now);
+            string result = test.JsonString();
+            Assert.AreEqual("{\"send_at\" : \"" + now + "\"}", result);
+        }
+
+        public void TestSetSendEachAt()
+        {
+            var test = new Header();
+            var now = DateTime.UtcNow;
+            test.SetSendEachAt(new List<DateTime> { now, now.AddSeconds(10) });
+            string result = test.JsonString();
+            Assert.AreEqual("{\"send_each_at\" : [\"" + Utils.DateTimeToUnixTimestamp(now) + "\", \"" + Utils.DateTimeToUnixTimestamp(now.AddSeconds(10)) + "]}", result);
         }
     }
 }

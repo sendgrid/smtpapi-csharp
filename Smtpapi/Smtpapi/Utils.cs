@@ -42,9 +42,10 @@ namespace SendGrid.SmtpApi
         }
 
         /// <summary>
+        /// ASCII escapes non-ASCII characters
         /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
+        /// <param name="value">The string to escape</param>
+        /// <returns>Escaped string</returns>
         public static string EncodeNonAsciiCharacters(string value)
         {
             var sb = new StringBuilder();
@@ -62,6 +63,17 @@ namespace SendGrid.SmtpApi
                 }
             }
             return sb.ToString();
+        }
+
+        /// <summary>
+        /// Convert a DateTime to a UNIX Epoch Timestamp
+        /// </summary>
+        /// <param name="dateTIme">Date to convert to timestamp</param>
+        /// <returns>Timestamp</returns>
+        public static double DateTimeToUnixTimestamp(DateTime dateTime)
+        {
+            var span = (dateTime - new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc));
+            return span.TotalSeconds;
         }
     }
 }

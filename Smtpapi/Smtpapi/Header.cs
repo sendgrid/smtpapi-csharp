@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace SendGrid.SmtpApi
@@ -158,10 +159,36 @@ namespace SendGrid.SmtpApi
             _settings.AddSetting(keys, id);
         }
 
+        /// <summary>
+        ///     This sets the IP Pool for this email. You can find further documentation about IP Pools here:
+        ///     https://sendgrid.com/docs/API_Reference/Web_API_v3/IP_Management/ip_pools.html
+        /// </summary>
+        /// <param name="pool">Name of the IP Pool with which to send the message. </param>
         public void SetIpPool(string pool)
         {
             var keys = new List<string> { "ip_pool" };
             _settings.AddSetting(keys, pool);
+        }
+
+        /// <summary>
+        ///     Schedule the email to be sent in the future. You can find further documentation about scheduled sends here:
+        ///     https://sendgrid.com/docs/API_Reference/SMTP_API/scheduling_parameters.html
+        /// </summary>
+        /// <param name="sendTime">DateTime representing the time to send the email. See docs for limitations. </param>
+        public void SetSendAt(DateTime sendTime)
+        {
+            var keys = new List<string> { "send_at" };
+            _settings.AddSetting(keys, Utils.DateTimeToUnixTimestamp(sendTime));
+        }
+
+        /// <summary>
+        ///     Schedule each email in your batch to be sent at a specific time in the future. You can find further documentation about scheduled sends here:
+        ///     https://sendgrid.com/docs/API_Reference/SMTP_API/scheduling_parameters.html
+        /// </summary>
+        /// <param name="sendDateTimes">A collection of DateTimes, with each time corresponding to one recipient in the SMTP API header</param>
+        public void SetSendEachAt(IEnumerable<DateTime> sendDateTimes)
+        {
+            _settings.AddArray(new List<string> { "send_each_at" }, sendDateTimes.Select(dateTime => Utils.DateTimeToUnixTimestamp(dateTime).ToString()));
         }
 
         #endregion
