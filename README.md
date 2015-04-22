@@ -1,3 +1,5 @@
+![](https://travis-ci.org/sendgrid/smtpapi-csharp.svg?branch=master)
+
 smtpapi-csharp
 ==============
 
