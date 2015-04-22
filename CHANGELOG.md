@@ -3,6 +3,7 @@ All notable changes to this project will be documented in this file.
 
 ## [1.3.0] - 2015-4-22
 ### Added
+- travis-ci build
 - SetAsmGroupId() method for suppression groups (ASM)
 - SetSendAt() and SetSendEachAt() methods for scheduled sends
 - SetIpPool() method for using IP Pools
