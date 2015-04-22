@@ -1,8 +1,12 @@
 language: csharp
 solution: Smtpapi/SendGrid.SmtpApi.sln
 install:
-  - nuget restore Smtpapi/SendGrid.SmtpApi.sln
-  - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
+- nuget restore Smtpapi/SendGrid.SmtpApi.sln
+- nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
 script:
-  - xbuild /p:Configuration=Release Smtpapi/SendGrid.SmtpApi.sln
-  - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./Smtpapi/HeaderTests/bin/Release/SendGrid.SmtpApi.HeaderTests.dll
+- xbuild /p:Configuration=Release Smtpapi/SendGrid.SmtpApi.sln
+- mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./Smtpapi/HeaderTests/bin/Release/SendGrid.SmtpApi.HeaderTests.dll
+notifications:
+  hipchat:
+    rooms:
+      secure: VaTthCHCVxkF38/B+nvfMQs0T/G2eG1OeA0sgIY8qeesvU4TWy8vXxKFPSW1GriagEUN0IU3bGHxGHAYAs6wOwGPx9eJtNcBTl2TigmCEiulBHBm63U34rCNhzQIKjY+hsnD4GeVbjOIbyqpnSrWRqOtzN5xhsY6kcqfbG9Fyk8=
