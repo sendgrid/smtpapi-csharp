@@ -98,5 +98,7 @@ namespace SendGrid.SmtpApi
         /// </summary>
         /// <param name="pool">Name of the IP Pool with which to send the message. </param>
         void SetIpPool(string pool);
+        
+
     }
 }

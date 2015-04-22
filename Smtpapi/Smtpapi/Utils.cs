@@ -70,10 +70,10 @@ namespace SendGrid.SmtpApi
         /// </summary>
         /// <param name="dateTIme">Date to convert to timestamp</param>
         /// <returns>Timestamp</returns>
-        public static double DateTimeToUnixTimestamp(DateTime dateTime)
+        public static Int32 DateTimeToUnixTimestamp(DateTime dateTime)
         {
             var span = (dateTime - new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc));
-            return span.TotalSeconds;
+            return (Int32)span.TotalSeconds;
         }
     }
 }

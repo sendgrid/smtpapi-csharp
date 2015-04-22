@@ -21,7 +21,7 @@ namespace SendGrid.SmtpApi
         /// </summary>
         public IEnumerable<string> To
         {
-            get { return _settings.GetArray("to"); }
+            get { return _settings.GetArray("to").Select(t => t.ToString()); }
         }
 
         #endregion
@@ -188,7 +188,7 @@ namespace SendGrid.SmtpApi
         /// <param name="sendDateTimes">A collection of DateTimes, with each time corresponding to one recipient in the SMTP API header</param>
         public void SetSendEachAt(IEnumerable<DateTime> sendDateTimes)
         {
-            _settings.AddArray(new List<string> { "send_each_at" }, sendDateTimes.Select(dateTime => Utils.DateTimeToUnixTimestamp(dateTime).ToString()));
+            _settings.AddArray(new List<string> { "send_each_at" }, sendDateTimes.Select(Utils.DateTimeToUnixTimestamp).Cast<object>().ToArray());
         }
 
         #endregion

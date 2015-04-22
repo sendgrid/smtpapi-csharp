@@ -13,8 +13,8 @@ namespace SendGrid.SmtpApi.HeaderTests
         {
             var test = new HeaderSettingsNode();
             test.AddArray(new List<string> {"foo", "bar"}, new[] {"raz", "blam"});
-            IEnumerable<string> result = test.GetArray("foo", "bar");
-            IList<string> enumerable = result as IList<string> ?? result.ToList();
+            IEnumerable<object> result = test.GetArray("foo", "bar");
+            IList<object> enumerable = result as IList<object> ?? result.ToList();
                 // Fix for possible multiple enumerations
             Assert.AreEqual(enumerable.ToList()[0], "raz");
             Assert.AreEqual(enumerable.ToList()[1], "blam");

@@ -126,16 +126,17 @@ namespace SendGrid.SmtpApi.HeaderTests
             var now = DateTime.UtcNow;
             test.SetSendAt(now);
             string result = test.JsonString();
-            Assert.AreEqual("{\"send_at\" : \"" + now + "\"}", result);
+            Assert.AreEqual("{\"send_at\" : " + Utils.DateTimeToUnixTimestamp(now) + "}", result);
         }
 
+        [Test]
         public void TestSetSendEachAt()
         {
             var test = new Header();
             var now = DateTime.UtcNow;
             test.SetSendEachAt(new List<DateTime> { now, now.AddSeconds(10) });
             string result = test.JsonString();
-            Assert.AreEqual("{\"send_each_at\" : [\"" + Utils.DateTimeToUnixTimestamp(now) + "\", \"" + Utils.DateTimeToUnixTimestamp(now.AddSeconds(10)) + "]}", result);
+            Assert.AreEqual("{\"send_each_at\" : [" + Utils.DateTimeToUnixTimestamp(now) + ", " + Utils.DateTimeToUnixTimestamp(now.AddSeconds(10)) + "]}", result);
         }
     }
 }

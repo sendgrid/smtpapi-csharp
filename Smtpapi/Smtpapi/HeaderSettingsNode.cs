@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -11,7 +12,7 @@ namespace SendGrid.SmtpApi
         #region Private Members
 
         private readonly Dictionary<string, HeaderSettingsNode> _branches;
-        private IEnumerable<string> _array;
+        private IEnumerable<object> _array;
         private object _leaf;
 
         #endregion
@@ -21,7 +22,7 @@ namespace SendGrid.SmtpApi
             _branches = new Dictionary<string, HeaderSettingsNode>();
         }
 
-        public void AddArray(List<String> keys, IEnumerable<String> value)
+        public void AddArray(List<String> keys, IEnumerable<object> value)
         {
             if (keys.Count == 0)
             {
@@ -77,12 +78,12 @@ namespace SendGrid.SmtpApi
             return _branches[key].GetSetting(remainingKeys);
         }
 
-        public IEnumerable<String> GetArray(params String[] keys)
+        public IEnumerable<object> GetArray(params String[] keys)
         {
             return GetArray(keys.ToList());
         }
 
-        public IEnumerable<String> GetArray(List<String> keys)
+        public IEnumerable<object> GetArray(List<String> keys)
         {
             if (keys.Count == 0)
                 return _array;
@@ -108,7 +109,7 @@ namespace SendGrid.SmtpApi
             if (_leaf != null)
                 json = Utils.Serialize(_leaf);
             if (_array != null)
-                json = "[" + String.Join(", ", _array.Select(Utils.Serialize)) + "]";
+                json = "[" + String.Join(", ", _array.Select<object,object>(obj => Utils.Serialize(obj))) + "]";
 
             if (json.Length > 0)
                 return Utils.EncodeNonAsciiCharacters(json);
