@@ -1,9 +1,15 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
-## [1.3.0] - 2015-2-6
+## [1.3.0] - 2015-4-22
 ### Added
-- ASM Group ID setting
+- SetAsmGroupId() method for suppression groups (ASM)
+- SetSendAt() and SetSendEachAt() methods for scheduled sends
+- SetIpPool() method for using IP Pools
+
+### Changed
+- HeaderSettingsNode.AddArray now takes a collection of type object rather
+  than string
 
 ## [1.2.0] - 2015-1-26
 ### Added
