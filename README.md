@@ -1,54 +1,69 @@
-![](https://travis-ci.org/sendgrid/smtpapi-csharp.svg?branch=master)
+[![Travis Badge](https://travis-ci.org/sendgrid/smtpapi-csharp.svg?branch=master)](https://travis-ci.org/sendgrid/smtpapi-csharp)
 
-smtpapi-csharp
-==============
+**This module helps build SendGrid's SMTP API headers.**
 
-Easily Build [SendGrid X-SMTPAPI Headers](http://sendgrid.com/docs/API_Reference/SMTP_API/index.html). 
+# Announcements
 
-See the [changelog](https://github.com/sendgrid/smtpapi-csharp/blob/master/CHANGELOG.md) for release notes.
+All updates to this module is documented in our [CHANGELOG](https://github.com/sendgrid/smtpapi-csharp/blob/master/CHANGELOG.md).
 
-```csharp
-using SendGrid.SmtpApi;
+# Installation
 
-var header = new Header();
+First, get your free SendGrid account [here](https://sendgrid.com/free?source=smtpapi-csharp).
 
-var uniqueArgs = new Dictionary<string,string> {
-  { "foo", "bar" },
-  { "chunky", "bacon"}
-};
+Next, update your Environment (user space) with your SENDGRID_USERNAME and SENDGRID_PASSWORD.
 
-header.AddUniqueArgs(uniqueArgs);
 
-var xmstpapiJson = header.JsonString();
+To use SendGrid.SmtpApi in your C# project, you can either <a href="https://github.com/sendgrid/smtpapi-sendgrid.git">download the SendGrid C# .NET libraries directly from our Github repository</a> or, if you have the NuGet package manager installed, you can grab them automatically.
+
+```bash
+PM> Install-Package SendGrid.SmtpApi
 ```
 
-You can then use generated JSON in conjunction with your favorite SMTP library.
+Add the following namespace to use the library:
 
 ```csharp
-SmtpClient client = new SmtpClient();
-client.Port = 587;
+using SendGrid.CSharp.HTTP.Client;
+```
+
+Once you have the library properly referenced in your project, you can include calls to them in your code.
+
+For a sample implementation, check the [Example](https://github.com/sendgrid/smtpapi-csharp/blob/master/Smtpapi/Example/Program.cs)
+
+## Dependencies
+
+- The SendGrid Service, starting at the [free level](https://sendgrid.com/free?source=smtpapi-csharp))
+
+# Quick Start
+
+```csharp
+using SendGrid.CSharp.HTTP.Client;
+
 client.Host = "smtp.sendgrid.net";
 client.Timeout = 10000;
 client.DeliveryMethod = SmtpDeliveryMethod.Network;
 client.UseDefaultCredentials = false;
-client.Credentials = new System.Net.NetworkCredential("your_sendgrid_username","your_sendgrid_password");
- 
+String sendgrid_username = Environment.GetEnvironmentVariable("SENDGRID_USERNAME", EnvironmentVariableTarget.User);
+String sendgrid_password = Environment.GetEnvironmentVariable("SENDGRID_PASSWORD", EnvironmentVariableTarget.User);
+client.Credentials = new System.Net.NetworkCredential(sendgrid_username,sendgrid_password);
+
 MailMessage mail = new MailMessage();
-mail.To.Add(new MailAddress("user@example.com"));
-mail.From = "you@yourcompany.com";
+mail.To.Add(new MailAddress("test@example.com"));
+mail.From = "test@example.com";
 mail.Subject = "this is a test email.";
 mail.Body = "this is my test email body";
 
 // add the custom header that we built above
 mail.Headers.Add( "X-SMTPAPI", xmstpapiJson );
- 
+
 client.SendAsync(mail, null);
 ```
+
 If you want to add multiple recipients to the X-SMTPAPI header for a mail merge type send, you can do something like the following:
+
 ```csharp
 var header = new Header();
 
-var recipients = new List<String> {"a@example.com", "b@exampe.com", "c@example.com"};
+var recipients = new List<String> {"test1@example.com", "test2@example.com", "test3@example.com"};
 header.SetTo(recipients);
 
 var subs = new List<String> {"A","B","C"};
@@ -56,7 +71,7 @@ header.AddSubstitution("%name%", subs);
 
 var mail = new MailMessage
 {
-    From = new MailAddress("please-reply@example.com"),
+    From = new MailAddress("test@example.com"),
     Subject = "Welcome",
     Body = "Hi there %name%"
 };
@@ -65,4 +80,31 @@ var mail = new MailMessage
 mail.Headers.Add("X-SMTPAPI", header.JsonString());
 ```
 
-For a more complete example, look at the included [Example project](https://github.com/sendgrid/smtpapi-csharp/blob/master/Smtpapi/Example/Program.cs).
+# Usage
+
+- [SendGrid Docs](https://sendgrid.com/docs/API_Reference/SMTP_API/index.html)
+- [Example Code](https://github.com/sendgrid/smtpapi-csharp/blob/master/Smtpapi/Example/Program.cs)
+
+## Roadmap
+
+If you are intersted in the future direction of this project, please take a look at our [milestones](https://github.com/sendgrid/smtpapi-csharp/milestones). We would love to hear your feedback.
+
+## How to Contribute
+
+We encourage contribution to our projects, please see our [CONTRIBUTING](https://github.com/sendgrid/smtpapi-csharp/blob/master/CONTRIBUTING.md) guide for details.
+
+Quick links:
+
+- [Feature Request](https://github.com/sendgrid/smtpapi-csharp/blob/master/CONTRIBUTING.md)
+- [Bug Reports](https://github.com/sendgrid/smtpapi-csharp/blob/master/CONTRIBUTING.md#submit_a_bug_report)
+- [Sign the CLA to Create a Pull Request](https://github.com/sendgrid/smtpapi-csharp/blob/master/CONTRIBUTING.md#cla)
+- [Improvements to the Codebase](https://github.com/sendgrid/smtpapi-csharp/blob/master/CONTRIBUTING.md#improvements_to_the_codebase)
+
+# About
+
+smtpapi-csharp is guided and supported by the SendGrid [Developer Experience Team](mailto:dx@sendgrid.com).
+
+smtpapi-csharp is maintained and funded by SendGrid, Inc. The names and logos for smtpapi-csharp are trademarks of SendGrid, Inc.
+
+![SendGrid Logo]
+(https://assets3.sendgrid.com/mkt/assets/logos_brands/small/sglogo_2015_blue-9c87423c2ff2ff393ebce1ab3bd018a4.png)
