@@ -8,10 +8,16 @@ All updates to this module is documented in our [CHANGELOG](https://github.com/s
 
 # Installation
 
-First, get your free SendGrid account [here](https://sendgrid.com/free?source=smtpapi-csharp).
+## Prerequisites
 
-Next, update your Environment (user space) with your SENDGRID_USERNAME and SENDGRID_PASSWORD.
+- .NET version 4.5.2
+- The SendGrid service, starting at the [free level](https://sendgrid.com/free?source=smtpapi-csharp))
 
+## Setup Environment Variables
+
+Update your Environment (user space) with your SENDGRID_USERNAME and SENDGRID_PASSWORD.
+
+## Install Package
 
 To use SendGrid.SmtpApi in your C# project, you can either <a href="https://github.com/sendgrid/smtpapi-sendgrid.git">download the SendGrid C# .NET libraries directly from our Github repository</a> or, if you have the NuGet package manager installed, you can grab them automatically.
 
@@ -28,10 +34,6 @@ using SendGrid.CSharp.HTTP.Client;
 Once you have the library properly referenced in your project, you can include calls to them in your code.
 
 For a sample implementation, check the [Example](https://github.com/sendgrid/smtpapi-csharp/blob/master/Smtpapi/Example/Program.cs)
-
-## Dependencies
-
-- The SendGrid Service, starting at the [free level](https://sendgrid.com/free?source=smtpapi-csharp))
 
 # Quick Start
 

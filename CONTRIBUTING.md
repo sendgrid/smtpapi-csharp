@@ -64,6 +64,7 @@ We welcome direct contributions to the smtpapi-csharp code base. Thank you!
 
 ##### Prerequisites #####
 
+- .NET version 4.5.2
 - Microsoft Visual Studio Community 2015 or greater
 
 ##### Initial setup: #####
