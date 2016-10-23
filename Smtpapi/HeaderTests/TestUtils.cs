@@ -24,11 +24,11 @@ namespace SendGrid.SmtpApi.HeaderTests
         {
             var test = new Dictionary<string, string>
                            {
-                               {"a", "b"}, 
+                               {"a", "b"},
                                {"c", "d/e"}
                            };
             var result = Utils.SerializeDictionary(test);
-            var expected = "{\"a\":\"b\",\"c\":\"d\\/e\"}";
+            var expected = "{\"a\":\"b\",\"c\":\"d/e\"}";
             Assert.AreEqual(expected, result);
         }
 
@@ -44,7 +44,7 @@ namespace SendGrid.SmtpApi.HeaderTests
         [ExpectedException("System.ArgumentNullException")]
         public void TestSerializeNullKeyThrowsException()
         {
-            var test = new Dictionary<string,string>{{null, "test"}};
+            var test = new Dictionary<string, string> { { null, "test" } };
             Utils.Serialize(test);
         }
 
@@ -54,7 +54,7 @@ namespace SendGrid.SmtpApi.HeaderTests
             var test = "私はラーメンが大好き";
             var result = Utils.EncodeNonAsciiCharacters(test);
             var expected = "\\u79c1\\u306f\\u30e9\\u30fc\\u30e1\\u30f3\\u304c\\u5927\\u597d\\u304d";
-            
+
             Assert.AreEqual(expected, result);
         }
     }
