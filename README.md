@@ -28,7 +28,7 @@ PM> Install-Package SendGrid.SmtpApi
 Add the following namespace to use the library:
 
 ```csharp
-using SendGrid.CSharp.HTTP.Client;
+using SendGrid.SmtpApi;
 ```
 
 Once you have the library properly referenced in your project, you can include calls to them in your code.
@@ -38,19 +38,32 @@ For a sample implementation, check the [Example](https://github.com/sendgrid/smt
 # Quick Start
 
 ```csharp
-using SendGrid.CSharp.HTTP.Client;
+using SendGrid.SmtpApi;
 
+var header = new Header();
+
+var uniqueArgs = new Dictionary<string,string> {
+  { "foo", "bar" },
+  { "chunky", "bacon"}
+};
+
+header.AddUniqueArgs(uniqueArgs);
+
+var xmstpapiJson = header.JsonString();
+```
+
+```csharp
+SmtpClient client = new SmtpClient();
+client.Port = 587;
 client.Host = "smtp.sendgrid.net";
 client.Timeout = 10000;
 client.DeliveryMethod = SmtpDeliveryMethod.Network;
 client.UseDefaultCredentials = false;
-String sendgrid_username = Environment.GetEnvironmentVariable("SENDGRID_USERNAME", EnvironmentVariableTarget.User);
-String sendgrid_password = Environment.GetEnvironmentVariable("SENDGRID_PASSWORD", EnvironmentVariableTarget.User);
-client.Credentials = new System.Net.NetworkCredential(sendgrid_username,sendgrid_password);
+client.Credentials = new System.Net.NetworkCredential("your_sendgrid_username","your_sendgrid_password");
 
 MailMessage mail = new MailMessage();
-mail.To.Add(new MailAddress("test@example.com"));
-mail.From = "test@example.com";
+mail.To.Add(new MailAddress("user@example.com"));
+mail.From = "you@yourcompany.com";
 mail.Subject = "this is a test email.";
 mail.Body = "this is my test email body";
 
