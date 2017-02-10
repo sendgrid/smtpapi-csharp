@@ -25,12 +25,6 @@ To use SendGrid.SmtpApi in your C# project, you can either <a href="https://gith
 PM> Install-Package SendGrid.SmtpApi
 ```
 
-Add the following namespace to use the library:
-
-```csharp
-using SendGrid.SmtpApi;
-```
-
 Once you have the library properly referenced in your project, you can include calls to them in your code.
 
 For a sample implementation, check the [Example](https://github.com/sendgrid/smtpapi-csharp/blob/master/Smtpapi/Example/Program.cs)
@@ -38,8 +32,6 @@ For a sample implementation, check the [Example](https://github.com/sendgrid/smt
 # Quick Start
 
 ```csharp
-using SendGrid.SmtpApi;
-
 var header = new Header();
 
 var uniqueArgs = new Dictionary<string,string> {
@@ -51,8 +43,10 @@ header.AddUniqueArgs(uniqueArgs);
 
 var xmstpapiJson = header.JsonString();
 ```
+You can then use generated JSON in conjunction with your favorite SMTP library.
 
 ```csharp
+using System.Net.Mail;
 SmtpClient client = new SmtpClient();
 client.Port = 587;
 client.Host = "smtp.sendgrid.net";
