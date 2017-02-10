@@ -46,7 +46,6 @@ var xmstpapiJson = header.JsonString();
 You can then use generated JSON in conjunction with your favorite SMTP library.
 
 ```csharp
-using System.Net.Mail;
 SmtpClient client = new SmtpClient();
 client.Port = 587;
 client.Host = "smtp.sendgrid.net";
@@ -57,7 +56,7 @@ client.Credentials = new System.Net.NetworkCredential("your_sendgrid_username","
 
 MailMessage mail = new MailMessage();
 mail.To.Add(new MailAddress("user@example.com"));
-mail.From = "you@yourcompany.com";
+mail.From = new MailAddress("you@yourcompany.com");
 mail.Subject = "this is a test email.";
 mail.Body = "this is my test email body";
 
