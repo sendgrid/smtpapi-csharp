@@ -11,7 +11,7 @@ namespace SendGrid.SmtpApi.HeaderTests
         public void TestAddFilterSetting()
         {
             var test = new Header();
-            test.AddFilterSetting("foo", new List<string> {"a", "b"}, "bar");
+            test.AddFilterSetting("foo", new List<string> { "a", "b" }, "bar");
             string result = test.JsonString();
             Assert.AreEqual("{\"filters\" : {\"foo\" : {\"settings\" : {\"a\" : {\"b\" : \"bar\"}}}}}", result);
         }
@@ -29,16 +29,16 @@ namespace SendGrid.SmtpApi.HeaderTests
         public void TestAddSubstitution()
         {
             var test = new Header();
-            test.AddSubstitution("foo", new List<string> {"bar", "raz"});
+            test.AddSubstitution("foo", new List<string> { "bar", "raz" });
             string result = test.JsonString();
-            Assert.AreEqual("{\"sub\" : {\"foo\" : [\"bar\", \"raz\"]}}", result);
+            Assert.AreEqual("{\"sub\" : {\"foo\" : [\"bar\",\"raz\"]}}", result);
         }
 
         [Test]
         public void TestAddUniqueArgs()
         {
             var test = new Header();
-            test.AddUniqueArgs(new Dictionary<string, string> {{"foo", "bar"}});
+            test.AddUniqueArgs(new Dictionary<string, string> { { "foo", "bar" } });
             string result = test.JsonString();
             Assert.AreEqual("{\"unique_args\" : {\"foo\" : \"bar\"}}", result);
         }
@@ -69,18 +69,18 @@ namespace SendGrid.SmtpApi.HeaderTests
             Assert.AreEqual("", result);
 
             test = new Header();
-            test.AddSubstitution("foo", new List<string> {"a", "b"});
+            test.AddSubstitution("foo", new List<string> { "a", "b" });
             result = test.JsonString();
-            Assert.AreEqual("{\"sub\" : {\"foo\" : [\"a\", \"b\"]}}", result);
+            Assert.AreEqual("{\"sub\" : {\"foo\" : [\"a\",\"b\"]}}", result);
         }
 
         [Test]
         public void TestSetCategories()
         {
             var test = new Header();
-            test.SetCategories(new List<string> {"dogs", "animals", "pets", "mammals"});
+            test.SetCategories(new List<string> { "dogs", "animals", "pets", "mammals" });
             string result = test.JsonString();
-            Assert.AreEqual("{\"category\" : [\"dogs\", \"animals\", \"pets\", \"mammals\"]}", result);
+            Assert.AreEqual("{\"category\" : [\"dogs\",\"animals\",\"pets\",\"mammals\"]}", result);
         }
 
         [Test]
@@ -96,9 +96,9 @@ namespace SendGrid.SmtpApi.HeaderTests
         public void TestSetTo()
         {
             var test = new Header();
-            test.SetTo(new List<string> {"joe@example.com", "jane@example.com"});
+            test.SetTo(new List<string> { "joe@example.com", "jane@example.com" });
             string result = test.JsonString();
-            Assert.AreEqual("{\"to\" : [\"joe@example.com\", \"jane@example.com\"]}", result);
+            Assert.AreEqual("{\"to\" : [\"joe@example.com\",\"jane@example.com\"]}", result);
         }
 
         [Test]
@@ -136,7 +136,7 @@ namespace SendGrid.SmtpApi.HeaderTests
             var now = DateTime.UtcNow;
             test.SetSendEachAt(new List<DateTime> { now, now.AddSeconds(10) });
             string result = test.JsonString();
-            Assert.AreEqual("{\"send_each_at\" : [" + Utils.DateTimeToUnixTimestamp(now) + ", " + Utils.DateTimeToUnixTimestamp(now.AddSeconds(10)) + "]}", result);
+            Assert.AreEqual("{\"send_each_at\" : [" + Utils.DateTimeToUnixTimestamp(now) + "," + Utils.DateTimeToUnixTimestamp(now.AddSeconds(10)) + "]}", result);
         }
     }
 }

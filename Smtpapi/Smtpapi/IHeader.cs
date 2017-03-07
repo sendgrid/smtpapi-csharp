@@ -20,14 +20,14 @@ namespace SendGrid.SmtpApi
         /// <param name="filter">The name of the filter to set</param>
         /// <param name="settings">The multipart name of the parameter being set</param>
         /// <param name="value">The value that the settings name will be assigning</param>
-        void AddFilterSetting(String filter, IEnumerable<String> settings, String value);
+        void AddFilterSetting(string filter, IEnumerable<string> settings, string value);
 
         /// <summary>
         ///     Adds a substitution section to be used during the mail merge.
         /// </summary>
         /// <param name="tag">string to be replaced with the section in the message</param>
         /// <param name="text">The text of the section. May include substituion tags.</param>
-        void AddSection(String tag, String text);
+        void AddSection(string tag, string text);
 
         /// <summary>
         ///     This adds a substitution value to be used during the mail merge.  Substitutions
@@ -36,32 +36,32 @@ namespace SendGrid.SmtpApi
         /// </summary>
         /// <param name="tag">string to be replaced in the message</param>
         /// <param name="substitutions">substitutions to be made, one per recipient</param>
-        void AddSubstitution(String tag, IEnumerable<String> substitutions);
+        void AddSubstitution(string tag, IEnumerable<string> substitutions);
 
         /// <summary>
         ///     This adds parameters and values that will be bassed back through SendGrid's
         ///     Event API if an event notification is triggered by this email.
         /// </summary>
         /// <param name="identifiers">parameter value pairs to be passed back on event notification</param>
-        void AddUniqueArgs(IDictionary<String, String> identifiers);
+        void AddUniqueArgs(IDictionary<string, string> identifiers);
 
         /// <summary>
         ///     Shortcut method for disabling a filter.
         /// </summary>
         /// <param name="filter">The name of the filter to disable</param>
-        void DisableFilter(String filter);
+        void DisableFilter(string filter);
 
         /// <summary>
         ///     Shortcut method for enabling a filter.
         /// </summary>
         /// <param name="filter">The name of the filter to enable</param>
-        void EnableFilter(String filter);
+        void EnableFilter(string filter);
 
         /// <summary>
         ///     Converts the filter settings into a JSON string.
         /// </summary>
         /// <returns>String representation of the SendGrid headers</returns>
-        String JsonString();
+        string JsonString();
 
         /// <summary>
         ///     This sets the categories for this email.  Statistics are stored on a per category
@@ -75,7 +75,7 @@ namespace SendGrid.SmtpApi
         ///     basis, so this can be useful for tracking on a per group basis.
         /// </summary>
         /// <param name="category">categories applied to the message</param>
-        void SetCategory(String category);
+        void SetCategory(string category);
 
         /// <summary>
         ///     This adds the "to" array to the X-SMTPAPI header so that multiple recipients
@@ -98,7 +98,7 @@ namespace SendGrid.SmtpApi
         /// </summary>
         /// <param name="pool">Name of the IP Pool with which to send the message. </param>
         void SetIpPool(string pool);
-        
+
 
     }
 }

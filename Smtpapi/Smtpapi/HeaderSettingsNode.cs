@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -22,7 +21,7 @@ namespace SendGrid.SmtpApi
             _branches = new Dictionary<string, HeaderSettingsNode>();
         }
 
-        public void AddArray(List<String> keys, IEnumerable<object> value)
+        public void AddArray(List<string> keys, IEnumerable<object> value)
         {
             if (keys.Count == 0)
             {
@@ -42,7 +41,7 @@ namespace SendGrid.SmtpApi
             }
         }
 
-        public void AddSetting(List<String> keys, object value)
+        public void AddSetting(List<string> keys, object value)
         {
             if (keys.Count == 0)
             {
@@ -62,12 +61,12 @@ namespace SendGrid.SmtpApi
             }
         }
 
-        public object GetSetting(params String[] keys)
+        public object GetSetting(params string[] keys)
         {
             return GetSetting(keys.ToList());
         }
 
-        public object GetSetting(List<String> keys)
+        public object GetSetting(List<string> keys)
         {
             if (keys.Count == 0)
                 return _leaf;
@@ -78,12 +77,12 @@ namespace SendGrid.SmtpApi
             return _branches[key].GetSetting(remainingKeys);
         }
 
-        public IEnumerable<object> GetArray(params String[] keys)
+        public IEnumerable<object> GetArray(params string[] keys)
         {
             return GetArray(keys.ToList());
         }
 
-        public IEnumerable<object> GetArray(List<String> keys)
+        public IEnumerable<object> GetArray(List<string> keys)
         {
             if (keys.Count == 0)
                 return _array;
@@ -99,21 +98,27 @@ namespace SendGrid.SmtpApi
             return _leaf;
         }
 
-        public String ToJson()
+        public string ToJson()
         {
             string json = "";
             if (_branches.Count > 0)
+            {
                 json = "{" +
-                       String.Join(",", _branches.Keys.Select(k => Utils.Serialize(k) + " : " + _branches[k].ToJson())) +
+                       string.Join(",", _branches.Keys.Select(k => Utils.Serialize(k) + " : " + _branches[k].ToJson())) +
                        "}";
+            }
             if (_leaf != null)
+            {
                 json = Utils.Serialize(_leaf);
+            }
             if (_array != null)
-                json = "[" + String.Join(", ", _array.Select<object,object>(obj => Utils.Serialize(obj))) + "]";
-
+            {
+                json = Utils.Serialize(_array);
+            }
             if (json.Length > 0)
+            {
                 return Utils.EncodeNonAsciiCharacters(json);
-
+            }
             return "{}";
         }
 
