@@ -58,7 +58,7 @@ namespace SendGrid.SmtpApi
         /// <summary>
         /// Convert a DateTime to a UNIX Epoch Timestamp
         /// </summary>
-        /// <param name="dateTIme">Date to convert to timestamp</param>
+        /// <param name="dateTime">Date to convert to timestamp</param>
         /// <returns>Timestamp</returns>
         public static int DateTimeToUnixTimestamp(DateTime dateTime)
         {

@@ -11,7 +11,7 @@ All updates to this module is documented in our [CHANGELOG](https://github.com/s
 ## Prerequisites
 
 - .NET version 4.5.2
-- The SendGrid service, starting at the [free level](https://sendgrid.com/free?source=smtpapi-csharp))
+- [The SendGrid service](https://sendgrid.com/free?source=smtpapi-csharp)
 
 ## Setup Environment Variables
 
@@ -95,7 +95,7 @@ mail.Headers.Add("X-SMTPAPI", header.JsonString());
 
 ## Roadmap
 
-If you are intersted in the future direction of this project, please take a look at our [milestones](https://github.com/sendgrid/smtpapi-csharp/milestones). We would love to hear your feedback.
+If you are interested in the future direction of this project, please take a look at our [milestones](https://github.com/sendgrid/smtpapi-csharp/milestones). We would love to hear your feedback.
 
 ## How to Contribute
 

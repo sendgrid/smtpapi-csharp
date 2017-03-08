@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.3.1] - 2017-3-8
+### Updated
+- Pull request #14: Refactor to JSON.net and simplify the code
+- Thanks to [Leon de Pruyssenaere de la Woestijne](https://github.com/leonpw) for the PR!
+
 ## [1.3.0] - 2015-4-22
 ### Added
 - travis-ci build
