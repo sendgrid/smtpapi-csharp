@@ -138,5 +138,14 @@ namespace SendGrid.SmtpApi.HeaderTests
             string result = test.JsonString();
             Assert.AreEqual("{\"send_each_at\" : [" + Utils.DateTimeToUnixTimestamp(now) + "," + Utils.DateTimeToUnixTimestamp(now.AddSeconds(10)) + "]}", result);
         }
+
+        [Test]
+        public void TestSetBatchId()
+        {
+            var test = new Header();
+            test.SetBatchId( "test_batch_id" );
+            string result = test.JsonString();
+            Assert.AreEqual( "{\"batch_id\" : \"test_batch_id\"}", result );
+        }
     }
 }

@@ -191,6 +191,17 @@ namespace SendGrid.SmtpApi
             _settings.AddArray(new List<string> { "send_each_at" }, sendDateTimes.Select(Utils.DateTimeToUnixTimestamp).Cast<object>().ToArray());
         }
 
+        /// <summary>
+        ///     Set the batch_id to allow cancellation of existing scheduled send. You can find further documentation about cancelling scheduled sends here:
+        ///     https://sendgrid.com/docs/API_Reference/Web_API_v3/cancel_schedule_send.html
+        /// </summary>
+        /// <param name="batchId">Batch Id to associate with this message</param>
+        public void SetBatchId( string batchId )
+        {
+            var keys = new List<string> { "batch_id" };
+            _settings.AddSetting( keys, batchId );
+        }
+
         #endregion
     }
 }
