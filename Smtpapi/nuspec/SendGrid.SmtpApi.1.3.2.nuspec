@@ -13,6 +13,9 @@
         <releaseNotes />
         <copyright>Copyright SendGrid, Inc. 2017</copyright>
         <tags>smtpapi sendgrid email</tags>
+		<dependencies>
+			<dependency id="Newtonsoft.Json" version="9.0.0" />
+		</dependencies>
     </metadata>
     <files>
         <file src="lib\SendGrid.SmtpApi.dll" target="lib\SendGrid.SmtpApi.dll" />
