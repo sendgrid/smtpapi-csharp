@@ -1,7 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
-## [1.3.1] - 2017-3-8
+## [1.3.3] - 2017-5-18
+### Updated
+- Pull request #28: Added Newtonsoft.Json as a package dependency in the nuspec file.
+- Thanks to [webster354](https://github.com/webster354) for the PR!
+
+## [1.3.2] - 2017-3-8
 ### Updated
 - Pull request #14: Refactor to JSON.net and simplify the code
 - Thanks to [Leon de Pruyssenaere de la Woestijne](https://github.com/leonpw) for the PR!

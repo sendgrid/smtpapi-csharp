@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>SendGrid.SmtpApi</id>
-        <version>1.3.2</version>
+        <version>1.3.3</version>
         <authors>Brandon West,Elmer Thomas</authors>
         <owners>Brandon West</owners>
         <projectUrl>https://github.com/sendgrid/smtpapi-csharp</projectUrl>
@@ -10,16 +10,19 @@
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>Easily build SendGrid SMTPAPI headers.</description>
         <summary>Easily build SendGrid SMTPAPI headers.</summary>
-        <releaseNotes />
+        <releaseNotes>### Updated
+- Pull request #28: Added Newtonsoft.Json as a package dependency in the nuspec file.
+- Thanks to [webster354](https://github.com/webster354) for the PR!</releaseNotes>
         <copyright>Copyright SendGrid, Inc. 2017</copyright>
         <tags>smtpapi sendgrid email</tags>
-		<dependencies>
-			<dependency id="Newtonsoft.Json" version="9.0.0" />
-		</dependencies>
+        <dependencies>
+            <dependency id="Newtonsoft.Json" version="9.0.1" />
+        </dependencies>
     </metadata>
     <files>
-        <file src="lib\SendGrid.SmtpApi.dll" target="lib\SendGrid.SmtpApi.dll" />
-        <file src="lib\SendGrid.SmtpApi.dll.config" target="lib\SendGrid.SmtpApi.dll.config" />
-        <file src="lib\SendGrid.SmtpApi.pdb" target="lib\SendGrid.SmtpApi.pdb" />
+        <file src="..\Smtpapi\bin\Release\SendGrid.SmtpApi.dll" target="lib\SendGrid.SmtpApi.dll" />
+        <file src="..\Smtpapi\bin\Release\SendGrid.SmtpApi.dll.config" target="lib\SendGrid.SmtpApi.dll.config" />
+        <file src="..\Smtpapi\bin\Release\SendGrid.SmtpApi.pdb" target="lib\SendGrid.SmtpApi.pdb" />
+        <file src="..\Smtpapi\bin\Release\SendGrid.SmtpApi.xml" target="lib\SendGrid.SmtpApi.xml" />
     </files>
 </package>
