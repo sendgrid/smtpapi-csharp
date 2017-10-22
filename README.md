@@ -11,6 +11,14 @@
 
 All updates to this module is documented in our [CHANGELOG](https://github.com/sendgrid/smtpapi-csharp/blob/master/CHANGELOG.md).
 
+# Table of Contents
+- [Installation](#installation)
+- [Quick Start](#quick-start)
+- [Usage](#usage)
+- [About](#about)
+- [License](#license)
+
+<a name="installation"></a>
 # Installation
 
 ## Prerequisites
@@ -34,6 +42,7 @@ Once you have the library properly referenced in your project, you can include c
 
 For a sample implementation, check the [Example](https://github.com/sendgrid/smtpapi-csharp/blob/master/Smtpapi/Example/Program.cs)
 
+<a name="quick-start"></a>
 # Quick Start
 
 ```csharp
@@ -93,6 +102,7 @@ var mail = new MailMessage
 mail.Headers.Add("X-SMTPAPI", header.JsonString());
 ```
 
+<a name="usage"></a>
 # Usage
 
 - [SendGrid Docs](https://sendgrid.com/docs/API_Reference/SMTP_API/index.html)
@@ -113,11 +123,13 @@ Quick links:
 - [Sign the CLA to Create a Pull Request](https://github.com/sendgrid/smtpapi-csharp/blob/master/CONTRIBUTING.md#cla)
 - [Improvements to the Codebase](https://github.com/sendgrid/smtpapi-csharp/blob/master/CONTRIBUTING.md#improvements-to-the-codebase)
 
+<a name="about"></a>
 # About
 
 smtpapi-csharp is guided and supported by the SendGrid [Developer Experience Team](mailto:dx@sendgrid.com).
 
 smtpapi-csharp is maintained and funded by SendGrid, Inc. The names and logos for smtpapi-csharp are trademarks of SendGrid, Inc.
 
+<a name="license"></a>
 # License
 [The MIT License (MIT)](LICENSE.txt)
