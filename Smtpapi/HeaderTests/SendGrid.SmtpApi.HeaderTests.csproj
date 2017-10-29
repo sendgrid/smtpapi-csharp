@@ -38,6 +38,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="TestHeader.cs" />
+    <Compile Include="TestRepositoryFiles.cs" />
     <Compile Include="TestTreeNode.cs" />
     <Compile Include="TestUtils.cs" />
   </ItemGroup>
