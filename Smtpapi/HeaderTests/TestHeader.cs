@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using NUnit.Framework;
+using System.IO;
 
 namespace SendGrid.SmtpApi.HeaderTests
 {
@@ -138,5 +139,7 @@ namespace SendGrid.SmtpApi.HeaderTests
             string result = test.JsonString();
             Assert.AreEqual("{\"send_each_at\" : [" + Utils.DateTimeToUnixTimestamp(now) + "," + Utils.DateTimeToUnixTimestamp(now.AddSeconds(10)) + "]}", result);
         }
+
+       
     }
 }

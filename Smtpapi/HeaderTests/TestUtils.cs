@@ -27,6 +27,7 @@ namespace SendGrid.SmtpApi.HeaderTests
                                {"a", "b"},
                                {"c", "d/e"}
                            };
+
             var result = Utils.SerializeDictionary(test);
             var expected = "{\"a\":\"b\",\"c\":\"d/e\"}";
             Assert.AreEqual(expected, result);
@@ -57,5 +58,17 @@ namespace SendGrid.SmtpApi.HeaderTests
 
             Assert.AreEqual(expected, result);
         }
+
+        [Test]
+        public void TestLicenseFileYear()
+        {
+            string test = "Copyright (c) 2014-2016 SendGrid, Inc.";
+            string expected = DateTime.Now.Year.ToString();
+           
+            Assert.AreEqual(expected, Utils.TestLicenseFileYear(test));
+
+        }
+
+
     }
 }

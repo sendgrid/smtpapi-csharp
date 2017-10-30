@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace SendGrid.SmtpApi
 {
@@ -64,6 +65,22 @@ namespace SendGrid.SmtpApi
         {
             var span = (dateTime - new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc));
             return (int)span.TotalSeconds;
+        }
+
+       
+        /// <summary>
+        /// Checks if string is current year
+        /// </summary>
+        /// <param name="license-date"></param>
+        /// <returns></returns>
+        public static string TestLicenseFileYear(string src)
+        {
+            var regex = new Regex(@"\d{4}-\d{4}");
+            var match = regex.Match(src).ToString();
+
+            var result = match.Substring(match.Length - 4);
+
+            return result; 
         }
     }
 }
