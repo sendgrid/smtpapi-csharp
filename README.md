@@ -35,13 +35,10 @@ All updates to this module is documented in our [CHANGELOG](https://github.com/s
 
 Update the development environment with your [SENDGRID_API_KEY](https://app.sendgrid.com/settings/api_keys), for example:
 
-```bash
-echo "export SENDGRID_API_KEY='YOUR_API_KEY'" > sendgrid.env
-echo "sendgrid.env" >> .gitignore
-source ./sendgrid.env
-```
-
-Update your Environment (user space) with your SENDGRID_USERNAME and SENDGRID_PASSWORD.
+1. Make a copy of the .env_sample file and name it .env
+2. Edit the file changing only the value of SENDGRID_PASSWORD variable
+3. Save the file
+4. Add the .env file to your environment path
 
 ## Install Package
 
