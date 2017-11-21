@@ -31,6 +31,16 @@ All updates to this module is documented in our [CHANGELOG](https://github.com/s
 
 ## Setup Environment Variables
 
+### Environment Variable
+
+Update the development environment with your [SENDGRID_API_KEY](https://app.sendgrid.com/settings/api_keys), for example:
+
+```bash
+echo "export SENDGRID_API_KEY='YOUR_API_KEY'" > sendgrid.env
+echo "sendgrid.env" >> .gitignore
+source ./sendgrid.env
+```
+
 Update your Environment (user space) with your SENDGRID_USERNAME and SENDGRID_PASSWORD.
 
 ## Install Package

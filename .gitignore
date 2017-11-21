@@ -181,3 +181,4 @@ Desktop.ini
 $RECYCLE.BIN/
 
 *.tss
+.env
