@@ -33,19 +33,20 @@ namespace SendGrid.SmtpApi.HeaderTests
         }
 
         [Test]
-        [ExpectedException("System.ArgumentNullException")]
         public void TestSerializeNullThrowsException()
         {
             string test = null;
-            Utils.Serialize(test);
+            Assert.Throws<ArgumentNullException>(() => Utils.Serialize(test));
         }
 
         [Test]
-        [ExpectedException("System.ArgumentNullException")]
         public void TestSerializeNullKeyThrowsException()
         {
-            var test = new Dictionary<string, string> { { null, "test" } };
-            Utils.Serialize(test);
+            Assert.Throws<ArgumentNullException>(() =>
+            {
+                var test = new Dictionary<string, string> { { null, "test" } };
+                Utils.Serialize(test);
+            });
         }
 
         [Test]
