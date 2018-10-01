@@ -105,7 +105,7 @@ namespace SendGrid.Tests
         // ./USE_CASES.md
         public void checkUseCases() 
         {
-            Assert.True(File.Exists("./USE_CASES.md"));
+            Assert.True(File.Exists("./UseCases/README.md"));
         }
     }
 }
