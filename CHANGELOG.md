@@ -29,7 +29,7 @@ All notable changes to this project will be documented in this file.
 
 ### Changed
 - Unicode characters in X-SMTPAPI header values or keys are now encoded as ASCII escape sequences.
-- Null header values or keys result in a `ArgumentNullException`.
+- Null header values or keys result in an `ArgumentNullException`.
 
 ### Fixed
 - Removed `System.Core` reference

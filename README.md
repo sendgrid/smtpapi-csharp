@@ -10,7 +10,7 @@
 
 # Announcements
 
-All updates to this module is documented in our [CHANGELOG](https://github.com/sendgrid/smtpapi-csharp/blob/master/CHANGELOG.md).
+All updates to this module are documented in our [CHANGELOG](https://github.com/sendgrid/smtpapi-csharp/blob/master/CHANGELOG.md).
 
 # Table of Contents
 - [Installation](#installation)
