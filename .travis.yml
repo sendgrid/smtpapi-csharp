@@ -6,6 +6,13 @@ install:
 script:
 - xbuild /p:Configuration=Release Smtpapi/SendGrid.SmtpApi.sln
 - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./Smtpapi/HeaderTests/bin/Release/SendGrid.SmtpApi.HeaderTests.dll
+deploy:
+  skip_cleanup: true
+  provider: script
+  script: nuget push ./Smtpapi/bin/Release/*.nupkg
+  on:
+    branch: master
+    condition: '"x$NUGET_API_KEY" != "x" && "x$NUGET_SOURCE" != "x"'
 notifications:
   hipchat:
     rooms:
