@@ -89,7 +89,7 @@ See the [examples folder](https://github.com/sendgrid/smtpapi-csharp/tree/master
 <a name="understanding-the-codebase"></a>
 ## Understanding the Code Base
 
-<!---optionally provide a brief summary explaning the architecture of the code-->
+<!---optionally provide a brief summary explaining the architecture of the code-->
 
 **/Smtpapi Example**
 
