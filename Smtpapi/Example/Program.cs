@@ -1,63 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Net;
-using System.Net.Mail;
-using System.Text;
-
-namespace SendGrid.SmtpApi.Example
+﻿namespace SendGrid.SmtpApi.Example
 {
-    internal class MainClass
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.Net;
+    using System.Net.Mail;
+    using System.Text;
+
+    internal class Program
     {
         private static bool _mailSent;
-
-        private static void SendCompletedCallback(object sender, AsyncCompletedEventArgs e)
-        {
-            // Get the unique identifier for this asynchronous operation.
-            var token = (string) e.UserState;
-
-            if (e.Cancelled)
-            {
-                Console.WriteLine("[{0}] Send canceled.", token);
-            }
-            if (e.Error != null)
-            {
-                Console.WriteLine("[{0}] {1}", token, e.Error);
-            }
-            else
-            {
-                Console.WriteLine("Message sent.");
-            }
-            _mailSent = true;
-        }
-
-        private static string XsmtpapiHeaderAsJson()
-        {
-            var header = new Header();
-
-            var uniqueArgs = new Dictionary<string, string>
-            {
-                {
-                    "foo",
-                    "bar"
-                },
-                {
-                    "chunky",
-                    "bacon"
-                },
-                {
-                    // UTF8 encoding test
-                    Encoding.UTF8.GetString(Encoding.Default.GetBytes("dead")),
-                    Encoding.UTF8.GetString(Encoding.Default.GetBytes("beef"))
-                }
-            };
-            header.AddUniqueArgs(uniqueArgs);
-
-            var subs = new List<String> {"私はラーメンが大好き"};
-            header.AddSubstitution("%tag%", subs);
-
-            return header.JsonString();
-        }
 
         public static void Main(string[] args)
         {
@@ -91,7 +43,7 @@ namespace SendGrid.SmtpApi.Example
             mail.Headers.Add("X-SMTPAPI", xmstpapiJson);
             mail.BodyEncoding = Encoding.UTF8;
 
-            //async event handler
+            // async event handler
             client.SendCompleted += SendCompletedCallback;
             const string state = "test1";
 
@@ -115,6 +67,56 @@ namespace SendGrid.SmtpApi.Example
             }
 
             mail.Dispose();
+        }
+
+        private static void SendCompletedCallback(object sender, AsyncCompletedEventArgs e)
+        {
+            // Get the unique identifier for this asynchronous operation.
+            var token = (string)e.UserState;
+
+            if (e.Cancelled)
+            {
+                Console.WriteLine("[{0}] Send canceled.", token);
+            }
+
+            if (e.Error != null)
+            {
+                Console.WriteLine("[{0}] {1}", token, e.Error);
+            }
+            else
+            {
+                Console.WriteLine("Message sent.");
+            }
+
+            _mailSent = true;
+        }
+
+        private static string XsmtpapiHeaderAsJson()
+        {
+            var header = new Header();
+
+            var uniqueArgs = new Dictionary<string, string>
+            {
+                {
+                    "foo",
+                    "bar"
+                },
+                {
+                    "chunky",
+                    "bacon"
+                },
+                {
+                    // UTF8 encoding test
+                    Encoding.UTF8.GetString(Encoding.Default.GetBytes("dead")),
+                    Encoding.UTF8.GetString(Encoding.Default.GetBytes("beef"))
+                }
+            };
+            header.AddUniqueArgs(uniqueArgs);
+
+            var subs = new List<string> { "私はラーメンが大好き" };
+            header.AddSubstitution("%tag%", subs);
+
+            return header.JsonString();
         }
     }
 }

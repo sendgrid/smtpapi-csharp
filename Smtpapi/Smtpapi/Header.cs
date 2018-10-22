@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace SendGrid.SmtpApi
+﻿namespace SendGrid.SmtpApi
 {
-    /// <summary>
-    /// </summary>
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
     public class Header : IHeader
     {
         #region Private Members
@@ -29,6 +27,7 @@ namespace SendGrid.SmtpApi
         #region Public Methods
 
         /// <summary>
+        ///     Initializes a new instance of the <see cref="Header"/> class.
         /// </summary>
         public Header()
         {
@@ -44,7 +43,7 @@ namespace SendGrid.SmtpApi
         /// <param name="value">The value that the settings name will be assigning</param>
         public void AddFilterSetting(string filter, IEnumerable<string> settings, string value)
         {
-            List<string> keys = new List<string> {"filters", filter, "settings"}.Concat(settings).ToList();
+            List<string> keys = new List<string> { "filters", filter, "settings" }.Concat(settings).ToList();
             _settings.AddSetting(keys, value);
         }
 
@@ -55,7 +54,7 @@ namespace SendGrid.SmtpApi
         /// <param name="text">The text of the section. May include substituion tags.</param>
         public void AddSection(string tag, string text)
         {
-            var keys = new List<string> {"section", tag};
+            var keys = new List<string> { "section", tag };
             _settings.AddSetting(keys, text);
         }
 
@@ -68,7 +67,7 @@ namespace SendGrid.SmtpApi
         /// <param name="substitutions">substitutions to be made, one per recipient</param>
         public void AddSubstitution(string tag, IEnumerable<string> substitutions)
         {
-            var keys = new List<string> {"sub", tag};
+            var keys = new List<string> { "sub", tag };
             _settings.AddArray(keys, substitutions);
         }
 
@@ -81,7 +80,7 @@ namespace SendGrid.SmtpApi
         {
             foreach (string key in identifiers.Keys)
             {
-                var keys = new List<string> {"unique_args", key};
+                var keys = new List<string> { "unique_args", key };
                 string value = identifiers[key];
                 _settings.AddSetting(keys, value);
             }
@@ -93,7 +92,7 @@ namespace SendGrid.SmtpApi
         /// <param name="filter">The name of the filter to disable</param>
         public void DisableFilter(string filter)
         {
-            AddFilterSetting(filter, new List<string> {"enable"}, "0");
+            AddFilterSetting(filter, new List<string> { "enable" }, "0");
         }
 
         /// <summary>
@@ -102,7 +101,7 @@ namespace SendGrid.SmtpApi
         /// <param name="filter">The name of the filter to enable</param>
         public void EnableFilter(string filter)
         {
-            AddFilterSetting(filter, new List<string> {"enable"}, "1");
+            AddFilterSetting(filter, new List<string> { "enable" }, "1");
         }
 
         /// <summary>
@@ -111,7 +110,7 @@ namespace SendGrid.SmtpApi
         /// <returns>String representation of the SendGrid headers</returns>
         public string JsonString()
         {
-            return _settings.IsEmpty() ? "" : _settings.ToJson();
+            return _settings.IsEmpty() ? string.Empty : _settings.ToJson();
         }
 
         /// <summary>
@@ -121,8 +120,12 @@ namespace SendGrid.SmtpApi
         /// <param name="categories">categories applied to the message</param>
         public void SetCategories(IEnumerable<string> categories)
         {
-            if (categories == null) return;
-            var keys = new List<string> {"category"};
+            if (categories == null)
+            {
+                return;
+            }
+
+            var keys = new List<string> { "category" };
             _settings.AddArray(keys, categories);
         }
 
@@ -133,7 +136,7 @@ namespace SendGrid.SmtpApi
         /// <param name="category">categories applied to the message</param>
         public void SetCategory(string category)
         {
-            var keys = new List<string> {"category"};
+            var keys = new List<string> { "category" };
             _settings.AddSetting(keys, category);
         }
 
@@ -145,7 +148,7 @@ namespace SendGrid.SmtpApi
         /// <param name="addresses">List of email addresses</param>
         public void SetTo(IEnumerable<string> addresses)
         {
-            _settings.AddArray(new List<string> {"to"}, addresses);
+            _settings.AddArray(new List<string> { "to" }, addresses);
         }
 
         /// <summary>

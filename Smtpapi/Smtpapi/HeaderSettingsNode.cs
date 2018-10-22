@@ -1,11 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
 namespace SendGrid.SmtpApi
 {
-    /// <summary>
-    /// </summary>
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
     internal class HeaderSettingsNode
     {
         #region Private Members
@@ -16,6 +14,9 @@ namespace SendGrid.SmtpApi
 
         #endregion
 
+        /// <summary>
+        ///     Initializes a new instance of the <see cref="HeaderSettingsNode"/> class.
+        /// </summary>
         public HeaderSettingsNode()
         {
             _branches = new Dictionary<string, HeaderSettingsNode>();
@@ -30,11 +31,15 @@ namespace SendGrid.SmtpApi
             else
             {
                 if (_leaf != null || _array != null)
+                {
                     throw new ArgumentException("Attempt to overwrite setting");
+                }
 
                 string key = keys.First();
                 if (!_branches.ContainsKey(key))
+                {
                     _branches[key] = new HeaderSettingsNode();
+                }
 
                 List<string> remainingKeys = keys.Skip(1).ToList();
                 _branches[key].AddArray(remainingKeys, value);
@@ -50,11 +55,15 @@ namespace SendGrid.SmtpApi
             else
             {
                 if (_leaf != null || _array != null)
+                {
                     throw new ArgumentException("Attempt to overwrite setting");
+                }
 
                 string key = keys.First();
                 if (!_branches.ContainsKey(key))
+                {
                     _branches[key] = new HeaderSettingsNode();
+                }
 
                 List<string> remainingKeys = keys.Skip(1).ToList();
                 _branches[key].AddSetting(remainingKeys, value);
@@ -69,10 +78,17 @@ namespace SendGrid.SmtpApi
         public object GetSetting(List<string> keys)
         {
             if (keys.Count == 0)
+            {
                 return _leaf;
+            }
+
             string key = keys.First();
+
             if (!_branches.ContainsKey(key))
+            {
                 throw new ArgumentException("Bad key path!");
+            }
+
             List<string> remainingKeys = keys.Skip(1).ToList();
             return _branches[key].GetSetting(remainingKeys);
         }
@@ -85,10 +101,16 @@ namespace SendGrid.SmtpApi
         public IEnumerable<object> GetArray(List<string> keys)
         {
             if (keys.Count == 0)
+            {
                 return _array;
+            }
+
             string key = keys.First();
             if (!_branches.ContainsKey(key))
+            {
                 throw new ArgumentException("Bad key path!");
+            }
+
             List<string> remainingKeys = keys.Skip(1).ToList();
             return _branches[key].GetArray(remainingKeys);
         }
@@ -100,31 +122,39 @@ namespace SendGrid.SmtpApi
 
         public string ToJson()
         {
-            string json = "";
+            string json = string.Empty;
             if (_branches.Count > 0)
             {
                 json = "{" +
                        string.Join(",", _branches.Keys.Select(k => Utils.Serialize(k) + " : " + _branches[k].ToJson())) +
                        "}";
             }
+
             if (_leaf != null)
             {
                 json = Utils.Serialize(_leaf);
             }
+
             if (_array != null)
             {
                 json = Utils.Serialize(_array);
             }
+
             if (json.Length > 0)
             {
                 return Utils.EncodeNonAsciiCharacters(json);
             }
+
             return "{}";
         }
 
         public bool IsEmpty()
         {
-            if (_leaf != null) return false;
+            if (_leaf != null)
+            {
+                return false;
+            }
+
             return _branches == null || _branches.Keys.Count == 0;
         }
     }

@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace SendGrid.SmtpApi
+﻿namespace SendGrid.SmtpApi
 {
+    using System.Collections.Generic;
+
     /// <summary>
     ///     Represents the additional functionality to add SendGrid specific mail headers
     /// </summary>
@@ -98,7 +97,5 @@ namespace SendGrid.SmtpApi
         /// </summary>
         /// <param name="pool">Name of the IP Pool with which to send the message. </param>
         void SetIpPool(string pool);
-
-
     }
 }
