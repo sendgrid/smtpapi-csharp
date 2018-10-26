@@ -42,7 +42,7 @@ Update the development environment with your [SENDGRID_API_KEY](https://app.send
 
 ## Install Package
 
-To use SendGrid.SmtpApi in your C# project, you can either <a href="https://github.com/sendgrid/smtpapi-sendgrid.git">download the SendGrid C# .NET libraries directly from our Github repository</a> or, if you have the NuGet package manager installed, you can grab them automatically.
+To use SendGrid.SmtpApi in your C# project, you can either <a href="https://github.com/sendgrid/smtpapi-csharp.git">download the SendGrid C# .NET libraries directly from our Github repository</a> or, if you have the NuGet package manager installed, you can grab them automatically.
 
 ```bash
 PM> Install-Package SendGrid.SmtpApi
