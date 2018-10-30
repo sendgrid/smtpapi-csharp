@@ -12,7 +12,7 @@
 
 All updates to this module are documented in our [CHANGELOG](https://github.com/sendgrid/smtpapi-csharp/blob/master/CHANGELOG.md).
 
-If you're a software engineer who is passionate about #DeveloperExperience and/or #OpenSource, this is an incredible opportunity to join our #DX team as a Developer Experience Engineer and work with @thinkingserious and @aroach! Tell your friends :)
+If you're a software engineer who is passionate about #DeveloperExperience and/or #OpenSource, [this is an incredible opportunity to join our #DX team](https://sendgrid.com/careers/role/1421152/?gh_jid=1421152) as a Developer Experience Engineer and work with **@thinkingserious** and **@aroach**! Tell your friends :)
 
 # Table of Contents
 - [Installation](#installation)
