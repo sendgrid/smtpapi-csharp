@@ -1,7 +1,8 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
-## [1.3.3] - 2017-5-18
+[2017-05-18] Version 1.3.3
+---------------------------
 ### Updated
 - Pull request #28: Added Newtonsoft.Json as a package dependency in the nuspec file.
 - Thanks to [webster354](https://github.com/webster354) for the PR!
