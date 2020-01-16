@@ -6,12 +6,10 @@ install:
 script:
 - xbuild /p:Configuration=Release Smtpapi/SendGrid.SmtpApi.sln
 - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./Smtpapi/HeaderTests/bin/Release/SendGrid.SmtpApi.HeaderTests.dll
-notifications:
-  hipchat:
-    rooms:
-      secure: RY4APzKYPJ6HjaITYQNZEBqMJVIyLcCKl02gvrr/91F0CTWZD04gsR6ndq8FzTugbmwAwi4TzH7ppnGCR/Z8LXfNr2y9k5pxQppW7FMVPGg2brLQMSQVa4uN9EJeq/3BDGf3L4CtLE5YJ416DHpHWN2iVqA2Fa5/BSJLY3m+7/E=
-    template:
-    - '<a href="https://travis-ci.org/%{repository}/builds/%{build_id}">%{repository}
-      Build %{build_number}</a> on branch <i>%{branch}</i> by %{author}: <strong>%{message}</strong>
-      <a href="https://github.com/%{repository}/commits/%{commit}">View on GitHub</a>'
-    format: html
+deploy:
+  skip_cleanup: true
+  provider: script
+  script: nuget push ./Smtpapi/bin/Release/*.nupkg --api-key $NUGET_API_KEY --source https://api.nuget.org/v3/index.json
+  on:
+    branch: master
+    tags: true
