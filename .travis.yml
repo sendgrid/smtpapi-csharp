@@ -5,7 +5,7 @@ script:
 deploy:
   skip_cleanup: true
   provider: script
-  script: nuget push ./Smtpapi/bin/Release/*.nupkg --api-key $NUGET_API_KEY --source https://api.nuget.org/v3/index.json
+  script: nuget push ./Smtpapi/bin/Release/*.nupkg -ApiKey $NUGET_API_KEY -Source https://api.nuget.org/v3/index.json
   on:
     branch: master
     tags: true
