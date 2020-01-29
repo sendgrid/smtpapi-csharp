@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>SendGrid.SmtpApi</id>
+    <authors>$authors$</authors>
+    <title>$title$</title>
+    <owners>$authors$</owners>
+    <version>1.3.3</version>
+    <projectUrl>https://sendgrid.com/</projectUrl>
+    <iconUrl>https://sendgrid.com/wp-content/themes/sgdotcom/pages/resource/brand//2016/SendGrid-Logomark.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <copyright>Copyright Twilio SendGrid 2020</copyright>
+    <description>$description$</description>
+    <license type="expression">MIT</license>
+    <tags>Twilio SendGrid Email Mail Microsoft Azure Transactional .NET Core</tags>
+  </metadata>
+</package>

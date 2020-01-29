@@ -1,11 +1,15 @@
 language: csharp
-solution: Smtpapi/SendGrid.SmtpApi.sln
+
 script:
 - make test
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+
 deploy:
   skip_cleanup: true
   provider: script
-  script: nuget push ./Smtpapi/bin/Release/*.nupkg -ApiKey $NUGET_API_KEY -Source https://api.nuget.org/v3/index.json
+  script: nuget push /home/travis/build/sendgrid/smtpapi-csharp/*.nupkg -ApiKey $NUGET_API_KEY -Source https://api.nuget.org/v3/index.json
   on:
     branch: master
     tags: true
