@@ -6,11 +6,11 @@ using System.Runtime.CompilerServices;
 // associated with an assembly.
 
 [assembly: AssemblyTitle("SendGrid.SmtpApi")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Easily build SendGrid SMTPAPI headers.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("SendGrid SmtpApi")]
-[assembly: AssemblyCopyright("Copyright © SendGrid, Inc. 2017")]
+[assembly: AssemblyCompany("Twilio SendGrid")]
+[assembly: AssemblyProduct("SendGrid.SmtpApi")]
+[assembly: AssemblyCopyright("Copyright Twilio SendGrid 2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: InternalsVisibleTo("SendGrid.SmtpApi.HeaderTests")]
@@ -20,17 +20,3 @@ using System.Runtime.CompilerServices;
 //                              "2a294169d5f2659efe0d68b30d7ceee310356c70b54ece3c8c69bbd9db86e07c34ff4fd5d7528b" +
 //                             "3ddf078d272025cb7a588030c78020f5eb91872b38dc2832f561fe184715bb8edb6f0b3b644de5" +
 //                              "2bc588ae")]
-
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revisions
-//
-// You can specify all the values or you can default the Build and Revision Numbers 
-// by using the '*' as shown below:
-// [assembly: AssemblyVersion("1.0.*")]
-
-[assembly: AssemblyVersion("1.3.3.0")]
-[assembly: AssemblyFileVersion("1.3.3.0")]
