@@ -1,6 +1,42 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+[2020-01-29] Version 1.3.4
+--------------------------
+**Library - Chore**
+- [PR #99](https://github.com/sendgrid/smtpapi-csharp/pull/99): updates for auto deploy via Travis CI. Thanks to [@thinkingserious](https://github.com/thinkingserious)!
+- [PR #98](https://github.com/sendgrid/smtpapi-csharp/pull/98): updates for auto-deploy via Travis CI. Thanks to [@thinkingserious](https://github.com/thinkingserious)!
+- [PR #96](https://github.com/sendgrid/smtpapi-csharp/pull/96): prep the repo for automated releasing. Thanks to [@thinkingserious](https://github.com/thinkingserious)!
+- [PR #80](https://github.com/sendgrid/smtpapi-csharp/pull/80): Adds a Deploy Travis task that publishes to NuGet. Thanks to [@Gimly](https://github.com/Gimly)!
+- [PR #76](https://github.com/sendgrid/smtpapi-csharp/pull/76): Adds UseCase folder and README.md file. Thanks to [@Gimly](https://github.com/Gimly)!
+- [PR #75](https://github.com/sendgrid/smtpapi-csharp/pull/75): Update LICENSE.txt. Thanks to [@nocategory](https://github.com/nocategory)!
+- [PR #68](https://github.com/sendgrid/smtpapi-csharp/pull/68): Add Code Review to Contributing.md #66. Thanks to [@derekneuland](https://github.com/derekneuland)!
+- [PR #61](https://github.com/sendgrid/smtpapi-csharp/pull/61): Update License Date. Thanks to [@shucon](https://github.com/shucon)!
+- [PR #51](https://github.com/sendgrid/smtpapi-csharp/pull/51): Add a .env_sample file, update gitignore, update README.md. Thanks to [@thepriefy](https://github.com/thepriefy)!
+- [PR #57](https://github.com/sendgrid/smtpapi-csharp/pull/57): update LICENSE - fix year. Thanks to [@pushkyn](https://github.com/pushkyn)!
+- [PR #59](https://github.com/sendgrid/smtpapi-csharp/pull/59): License.md file date range ut. Thanks to [@blitzerpl](https://github.com/blitzerpl)!
+- [PR #58](https://github.com/sendgrid/smtpapi-csharp/pull/58): Added unittest to check for specific repo files. Thanks to [@mptap](https://github.com/mptap)!
+- [PR #52](https://github.com/sendgrid/smtpapi-csharp/pull/52): Add a env sample. Thanks to [@gabrielgene](https://github.com/gabrielgene)!
+- [PR #47](https://github.com/sendgrid/smtpapi-csharp/pull/47): add GitHub PR template. Thanks to [@pushkyn](https://github.com/pushkyn)!
+- [PR #44](https://github.com/sendgrid/smtpapi-csharp/pull/44): add .github/ISSUE_TEMPLATE. Thanks to [@thepriefy](https://github.com/thepriefy)!
+- [PR #38](https://github.com/sendgrid/smtpapi-csharp/pull/38): Add/Update Badges on README. Thanks to [@mptap](https://github.com/mptap)!
+- [PR #37](https://github.com/sendgrid/smtpapi-csharp/pull/37): SEO friendly links for README.md and CONTRIBUTING.md. Thanks to [@whitneyrosenberg](https://github.com/whitneyrosenberg)!
+
+**Library - Fix**
+- [PR #97](https://github.com/sendgrid/smtpapi-csharp/pull/97): nuget push flag. Thanks to [@thinkingserious](https://github.com/thinkingserious)!
+- [PR #31](https://github.com/sendgrid/smtpapi-csharp/pull/31): README.md typo. Thanks to [@ciceropablo](https://github.com/ciceropablo)!
+
+**Library - Docs**
+- [PR #92](https://github.com/sendgrid/smtpapi-csharp/pull/92): Added Announcement. Thanks to [@luciajimenez](https://github.com/luciajimenez)!
+- [PR #45](https://github.com/sendgrid/smtpapi-csharp/pull/45): README.md typo. Thanks to [@abdullaharshad](https://github.com/abdullaharshad)!
+- [PR #42](https://github.com/sendgrid/smtpapi-csharp/pull/42): update contributing.md - fix typo. Thanks to [@pushkyn](https://github.com/pushkyn)!
+- [PR #41](https://github.com/sendgrid/smtpapi-csharp/pull/41): update readme - logo on separate line, fix ToC. Thanks to [@pushkyn](https://github.com/pushkyn)!
+- [PR #40](https://github.com/sendgrid/smtpapi-csharp/pull/40): add table of contents in README.md. Thanks to [@thepriefy](https://github.com/thepriefy)!
+- [PR #39](https://github.com/sendgrid/smtpapi-csharp/pull/39): Demonstrate how to review the request body for troubleshooting. Thanks to [@mptap](https://github.com/mptap)!
+- [PR #33](https://github.com/sendgrid/smtpapi-csharp/pull/33): Fix #32: Add a Code Of Conduct. Thanks to [@hbbq](https://github.com/hbbq)!
+- [PR #81](https://github.com/sendgrid/smtpapi-csharp/pull/81): Ran *.md files through grammarly service. Thanks to [@nathan78906](https://github.com/nathan78906)!
+
+
 [2017-05-18] Version 1.3.3
 ---------------------------
 ### Updated
