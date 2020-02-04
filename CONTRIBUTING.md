@@ -76,7 +76,7 @@ git clone https://github.com/sendgrid/smtpapi-csharp.git
 
 Open `smtpapi-csharp/Smtpapi/SendGrid.SmtpApi.sln`
 
-## Environment Variables
+### Environment Variables
 
 First, get your free SendGrid account [here](https://sendgrid.com/free?source=smtpapi-csharp).
 
