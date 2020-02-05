@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+[2020-02-05] Version 1.3.5
+--------------------------
+**Library - Docs**
+- [PR #64](https://github.com/sendgrid/smtpapi-csharp/pull/64): makes Environmental Variables a sub topic in CONTRIBUTING.md. Thanks to [@thepriefy](https://github.com/thepriefy)!
+
+
 [2020-01-29] Version 1.3.4
 --------------------------
 **Library - Chore**
