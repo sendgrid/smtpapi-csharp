@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+[2020-02-19] Version 1.3.6
+--------------------------
+**Library - Docs**
+- [PR #84](https://github.com/sendgrid/smtpapi-csharp/pull/84): Add first-timers.md file for newcomers. Thanks to [@ely-alamillo](https://github.com/ely-alamillo)!
+
+
 [2020-02-05] Version 1.3.5
 --------------------------
 **Library - Docs**
