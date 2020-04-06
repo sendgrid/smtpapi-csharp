@@ -1,7 +1,7 @@
 language: csharp
 
 script:
-- make test
+  - make test
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
@@ -13,3 +13,12 @@ deploy:
   on:
     branch: master
     tags: true
+
+notifications:
+  slack:
+    if: branch = master
+    on_pull_requests: false
+    on_success: never
+    on_failure: change
+    rooms:
+      - secure: OMxOft/oHZcNVog6KItt3/+y8lux+PMUPaAUBRlDV6csQ6QcUvMtpml8PBh+Z/0wzkIBayZG4XCKlSXnOf1yVvlNE+NWNGmG8ClRYjS2qTJcH1VnWwIxWB/TUKnXxOQar5db04RwH6qtAOv72JfI7c5LI/KlI8MEK0cy1JsI4Yc=
