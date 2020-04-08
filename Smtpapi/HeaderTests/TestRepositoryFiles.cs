@@ -11,12 +11,12 @@ namespace SendGrid.SmtpApi.HeaderTests
         [Test]
         public void TestLicenseEndYear()
         {
-            string[] pathsArray = new string[] { "..", "..", "..", "..", "LICENSE.txt" };
+            string[] pathsArray = new string[] { "..", "..", "..", "..", "LICENSE.md" };
             string licensePath = Path.Combine(pathsArray);
 
-            string line = File.ReadLines(licensePath).First();
+            string line = File.ReadLines(licensePath).Skip(2).Take(1).First();
 
-            Assert.AreEqual(DateTime.Now.Year.ToString(), line.Substring(19, 4));
+            Assert.AreEqual(DateTime.Now.Year.ToString(), line.Substring(14, 4));
         }
     }
 }
