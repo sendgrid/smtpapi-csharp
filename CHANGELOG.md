@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+[2020-07-22] Version 1.3.8
+--------------------------
+**Library - Docs**
+- [PR #90](https://github.com/sendgrid/smtpapi-csharp/pull/90): Fix link to smtp-csharp git repo. Thanks to [@sanjaysingh](https://github.com/sanjaysingh)!
+
+
 [2020-04-15] Version 1.3.7
 --------------------------
 **Library - Docs**
