@@ -11,12 +11,12 @@ deploy:
   provider: script
   script: nuget push /home/travis/build/sendgrid/smtpapi-csharp/*.nupkg -ApiKey $NUGET_API_KEY -Source https://api.nuget.org/v3/index.json
   on:
-    branch: master
+    branch: main
     tags: true
 
 notifications:
   slack:
-    if: branch = master
+    if: branch = main
     on_pull_requests: false
     on_success: never
     on_failure: change
