@@ -68,7 +68,7 @@ Next, update your Environment (user space) with your SENDGRID_USERNAME and SENDG
 
 ##### Execute: #####
 
-See the [examples folder](https://github.com/sendgrid/smtpapi-csharp/tree/HEAD/Smtpapi/Example) to get started quickly.
+See the [examples folder](Smtpapi/Example) to get started quickly.
 
 <a name="understanding-the-codebase"></a>
 ## Understanding the Code Base
@@ -92,9 +92,9 @@ Source code
 
 All PRs require passing tests before the PR will be reviewed.
 
-All test files are in the [`Smtpapi/HeaderTests`](https://github.com/sendgrid/smtpapi-csharp/tree/HEAD/Smtpapi/HeaderTests) directory.
+All test files are in the [`Smtpapi/HeaderTests`](Smtpapi/HeaderTests) directory.
 
-For the purposes of contributing to this repo, please update the [`TestHeader.cs`](https://github.com/sendgrid/smtpapi-csharp/blob/HEAD/test/Smtpapi/HeaderTests/TestHeader.cs) file with unit tests as you modify the code.
+For the purposes of contributing to this repo, please update the [`TestHeader.cs`](test/Smtpapi/HeaderTests/TestHeader.cs) file with unit tests as you modify the code.
 
 From the Visual Studio menu: `Tests->Run->All Tests`
 
