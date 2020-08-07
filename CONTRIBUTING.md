@@ -94,7 +94,7 @@ All PRs require passing tests before the PR will be reviewed.
 
 All test files are in the [`Smtpapi/HeaderTests`](Smtpapi/HeaderTests) directory.
 
-For the purposes of contributing to this repo, please update the [`TestHeader.cs`](test/Smtpapi/HeaderTests/TestHeader.cs) file with unit tests as you modify the code.
+For the purposes of contributing to this repo, please update the [`TestHeader.cs`](Smtpapi/HeaderTests/TestHeader.cs) file with unit tests as you modify the code.
 
 From the Visual Studio menu: `Tests->Run->All Tests`
 
