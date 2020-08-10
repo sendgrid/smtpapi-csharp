@@ -68,7 +68,7 @@ Next, update your Environment (user space) with your SENDGRID_USERNAME and SENDG
 
 ##### Execute: #####
 
-See the [examples folder](https://github.com/sendgrid/smtpapi-csharp/tree/master/Smtpapi/Example) to get started quickly.
+See the [examples folder](Smtpapi/Example) to get started quickly.
 
 <a name="understanding-the-codebase"></a>
 ## Understanding the Code Base
@@ -92,9 +92,9 @@ Source code
 
 All PRs require passing tests before the PR will be reviewed.
 
-All test files are in the [`Smtpapi/HeaderTests`](https://github.com/sendgrid/smtpapi-csharp/tree/master/Smtpapi/HeaderTests) directory.
+All test files are in the [`Smtpapi/HeaderTests`](Smtpapi/HeaderTests) directory.
 
-For the purposes of contributing to this repo, please update the [`TestHeader.cs`](https://github.com/sendgrid/smtpapi-csharp/blob/master/test/Smtpapi/HeaderTests/TestHeader.cs) file with unit tests as you modify the code.
+For the purposes of contributing to this repo, please update the [`TestHeader.cs`](Smtpapi/HeaderTests/TestHeader.cs) file with unit tests as you modify the code.
 
 From the Visual Studio menu: `Tests->Run->All Tests`
 
@@ -144,7 +144,7 @@ Generally, we follow the style guidelines as suggested by the official language.
 5. Locally merge (or rebase) the upstream development branch into your topic branch:
 
    ```bash
-   git pull [--rebase] upstream master
+   git pull [--rebase] upstream main
    ```
 
 6. Push your topic branch up to your fork:
@@ -154,7 +154,7 @@ Generally, we follow the style guidelines as suggested by the official language.
    ```
 
 7. [Open a Pull Request](https://help.github.com/articles/using-pull-requests/)
-    with a clear title and description against the `master` branch. All tests must be passing before we will review the PR.
+    with a clear title and description against the `main` branch. All tests must be passing before we will review the PR.
     
 ## Code Reviews<a name="code-reviews"></a>
 If you can, please look at open PRs and review them. Give feedback and help us merge these PRs much faster! If you don't know how, Github has some <a href="https://help.github.com/articles/about-pull-request-reviews/">great information on how to review a Pull Request.</a>
