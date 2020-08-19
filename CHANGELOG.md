@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+[2020-08-19] Version 1.3.9
+--------------------------
+**Library - Chore**
+- [PR #102](https://github.com/sendgrid/smtpapi-csharp/pull/102): update GitHub branch references to use HEAD. Thanks to [@thinkingserious](https://github.com/thinkingserious)!
+
+
 [2020-07-22] Version 1.3.8
 --------------------------
 **Library - Docs**
