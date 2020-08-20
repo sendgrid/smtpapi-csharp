@@ -27,7 +27,7 @@ All updates to this module are documented in our [CHANGELOG](CHANGELOG.md).
 
 ## Prerequisites
 
-- .NET version 4.5.2
+- .NET Framework 4.0+
 - [The SendGrid service](https://sendgrid.com/free?source=smtpapi-csharp)
 
 ## Setup Environment Variables
