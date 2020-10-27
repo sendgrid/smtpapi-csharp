@@ -11,7 +11,7 @@ namespace SendGrid.SmtpApi.HeaderTests
         [Test]
         public void TestLicenseEndYear()
         {
-            string[] pathsArray = new string[] { "..", "..", "..", "..", "LICENSE.md" };
+            string[] pathsArray = new string[] { "..", "..", "..", "..", "LICENSE" };
             string licensePath = Path.Combine(pathsArray);
 
             string line = File.ReadLines(licensePath).Skip(2).Take(1).First();

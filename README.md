@@ -4,7 +4,7 @@
 [![Email Notifications Badge](https://dx.sendgrid.com/badge/csharp)](https://dx.sendgrid.com/newsletter/csharp)
 [![Twitter Follow](https://img.shields.io/twitter/follow/sendgrid.svg?style=social&label=Follow)](https://twitter.com/sendgrid)
 [![GitHub contributors](https://img.shields.io/github/contributors/sendgrid/smtpapi-csharp.svg)](https://github.com/sendgrid/smtpapi-csharp/graphs/contributors)
-[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE.md)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 **This module helps build SendGrid's SMTP API headers.**
 
@@ -140,4 +140,4 @@ If you've instead found a bug in the library or would like new features added, g
 
 <a name="license"></a>
 # License
-[The MIT License (MIT)](LICENSE.md)
+[The MIT License (MIT)](LICENSE)
