@@ -5,7 +5,6 @@ clean:
 
 install:
 	@dotnet --version || (echo "Dotnet is not installed, please install Dotnet CLI"; exit 1);
-	dotnet restore Smtpapi/SendGrid.SmtpApi.sln
 
 test:
 	dotnet build -c Release Smtpapi/SendGrid.SmtpApi.sln
