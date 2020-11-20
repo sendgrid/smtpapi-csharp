@@ -1,9 +1,6 @@
 language: csharp
 dotnet: 3.1
-solution: SendGrid.SmtpApi.sln
-os: linux
-dist: bionic
-mono: none
+
 env:
   - FrameworkPathOverride=/usr/lib/mono/4.5/
 
