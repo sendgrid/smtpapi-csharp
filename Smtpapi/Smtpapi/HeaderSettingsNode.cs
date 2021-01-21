@@ -6,7 +6,7 @@ namespace SendGrid.SmtpApi
 {
     /// <summary>
     /// </summary>
-    internal class HeaderSettingsNode
+    public class HeaderSettingsNode
     {
         #region Private Members
 
