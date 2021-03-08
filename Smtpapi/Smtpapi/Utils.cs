@@ -65,5 +65,16 @@ namespace SendGrid.SmtpApi
             var span = (dateTime - new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc));
             return (int)span.TotalSeconds;
         }
+
+        /// <summary>
+        /// Convert a DateTimeOffset to a UNIX Epoch Timestamp
+        /// </summary>
+        /// <param name="dateTimeOffset">Date to convert to timestamp</param>
+        /// <returns>Timestamp</returns>
+        public static int DateTimeOffsetToUnixTimestamp(DateTimeOffset dateTimeOffset)
+        {
+            var span = (dateTimeOffset - new DateTimeOffset(1970, 1, 1, 0, 0, 0, 0, TimeSpan.Zero));
+            return (int)span.TotalSeconds;
+        }
     }
 }
