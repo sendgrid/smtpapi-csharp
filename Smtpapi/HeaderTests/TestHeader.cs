@@ -120,7 +120,7 @@ namespace SendGrid.SmtpApi.HeaderTests
         }
 
         [Test]
-        public void TestSetSendAt()
+        public void TestSetSendAt_DateTime()
         {
             var test = new Header();
             var now = DateTime.UtcNow;
@@ -130,13 +130,33 @@ namespace SendGrid.SmtpApi.HeaderTests
         }
 
         [Test]
-        public void TestSetSendEachAt()
+        public void TestSetSendAt_DateTimeOffset()
+        {
+            var test = new Header();
+            var now = DateTimeOffset.UtcNow;
+            test.SetSendAt(now);
+            string result = test.JsonString();
+            Assert.AreEqual("{\"send_at\" : " + Utils.DateTimeOffsetToUnixTimestamp(now) + "}", result);
+        }
+
+        [Test]
+        public void TestSetSendEachAt_DateTime()
         {
             var test = new Header();
             var now = DateTime.UtcNow;
             test.SetSendEachAt(new List<DateTime> { now, now.AddSeconds(10) });
             string result = test.JsonString();
             Assert.AreEqual("{\"send_each_at\" : [" + Utils.DateTimeToUnixTimestamp(now) + "," + Utils.DateTimeToUnixTimestamp(now.AddSeconds(10)) + "]}", result);
+        }
+
+        [Test]
+        public void TestSetSendEachAt_DateTimeOffset()
+        {
+            var test = new Header();
+            var now = DateTimeOffset.UtcNow;
+            test.SetSendEachAt(new List<DateTimeOffset> { now, now.AddSeconds(10) });
+            string result = test.JsonString();
+            Assert.AreEqual("{\"send_each_at\" : [" + Utils.DateTimeOffsetToUnixTimestamp(now) + "," + Utils.DateTimeOffsetToUnixTimestamp(now.AddSeconds(10)) + "]}", result);
         }
     }
 }

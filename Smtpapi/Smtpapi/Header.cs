@@ -172,7 +172,7 @@ namespace SendGrid.SmtpApi
 
         /// <summary>
         ///     Schedule the email to be sent in the future. You can find further documentation about scheduled sends here:
-        ///     https://sendgrid.com/docs/API_Reference/SMTP_API/scheduling_parameters.html
+        ///     https://sendgrid.com/docs/for-developers/sending-email/scheduling-parameters/
         /// </summary>
         /// <param name="sendTime">DateTime representing the time to send the email. See docs for limitations. </param>
         public void SetSendAt(DateTime sendTime)
@@ -182,13 +182,34 @@ namespace SendGrid.SmtpApi
         }
 
         /// <summary>
+        ///     Schedule the email to be sent in the future. You can find further documentation about scheduled sends here:
+        ///     https://sendgrid.com/docs/for-developers/sending-email/scheduling-parameters/
+        /// </summary>
+        /// <param name="sendTime">DateTimeOffset representing the time to send the email. See docs for limitations. </param>
+        public void SetSendAt(DateTimeOffset sendTime)
+        {
+            var keys = new List<string> { "send_at" };
+            _settings.AddSetting(keys, Utils.DateTimeOffsetToUnixTimestamp(sendTime));
+        }
+
+        /// <summary>
         ///     Schedule each email in your batch to be sent at a specific time in the future. You can find further documentation about scheduled sends here:
-        ///     https://sendgrid.com/docs/API_Reference/SMTP_API/scheduling_parameters.html
+        ///     https://sendgrid.com/docs/for-developers/sending-email/scheduling-parameters/
         /// </summary>
         /// <param name="sendDateTimes">A collection of DateTimes, with each time corresponding to one recipient in the SMTP API header</param>
         public void SetSendEachAt(IEnumerable<DateTime> sendDateTimes)
         {
             _settings.AddArray(new List<string> { "send_each_at" }, sendDateTimes.Select(Utils.DateTimeToUnixTimestamp).Cast<object>().ToArray());
+        }
+
+        /// <summary>
+        ///     Schedule each email in your batch to be sent at a specific time in the future. You can find further documentation about scheduled sends here:
+        ///     https://sendgrid.com/docs/for-developers/sending-email/scheduling-parameters/
+        /// </summary>
+        /// <param name="sendDateTimes">A collection of DateTimeOffsets, with each time corresponding to one recipient in the SMTP API header</param>
+        public void SetSendEachAt(IEnumerable<DateTimeOffset> sendDateTimes)
+        {
+            _settings.AddArray(new List<string> { "send_each_at" }, sendDateTimes.Select(Utils.DateTimeOffsetToUnixTimestamp).Cast<object>().ToArray());
         }
 
         #endregion
