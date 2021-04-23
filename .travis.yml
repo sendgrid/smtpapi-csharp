@@ -1,27 +1,22 @@
 language: csharp
 dotnet: 3.1
-
 env:
-  - FrameworkPathOverride=/usr/lib/mono/4.5/
-
+- FrameworkPathOverride=/usr/lib/mono/4.5/
 install:
-  - make install
-
+- make install
 script:
-  - make test
-  - make release
-
+- make test
+- make release
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
-
+- bash <(curl -s https://codecov.io/bash)
 deploy:
   skip_cleanup: true
   provider: script
-  script: dotnet nuget push /home/travis/build/sendgrid/smtpapi-csharp/*.nupkg -ApiKey $NUGET_API_KEY -Source https://api.nuget.org/v3/index.json
+  script: dotnet nuget push /home/travis/build/sendgrid/smtpapi-csharp/*.nupkg -ApiKey
+    $NUGET_API_KEY -Source https://api.nuget.org/v3/index.json
   on:
     branch: main
     tags: true
-
 notifications:
   slack:
     if: branch = main
@@ -29,4 +24,4 @@ notifications:
     on_success: never
     on_failure: change
     rooms:
-      - secure: OMxOft/oHZcNVog6KItt3/+y8lux+PMUPaAUBRlDV6csQ6QcUvMtpml8PBh+Z/0wzkIBayZG4XCKlSXnOf1yVvlNE+NWNGmG8ClRYjS2qTJcH1VnWwIxWB/TUKnXxOQar5db04RwH6qtAOv72JfI7c5LI/KlI8MEK0cy1JsI4Yc=
+      secure: P30BHIrJdZ4ywIUAzGHqECZJh9oytniQz0SOfCWmHy7V2GQAy5A3UqDL1VbuETy/7XS+JP0G8HzbfIE4tMxU9+MgoF6gRz2n8ls6gbDopHGEJeuI5Ad9AKos2Cb7rnRx5/sWld+EGd3U3c/yQyfx6KLWoXDkxXQExVZVNmdNIio=
