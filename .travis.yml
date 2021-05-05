@@ -13,7 +13,7 @@ deploy:
   skip_cleanup: true
   provider: script
   script: dotnet nuget push /home/travis/build/sendgrid/smtpapi-csharp/*.nupkg --api-key
-    $NUGET_API_KEY -Source https://api.nuget.org/v3/index.json
+    $NUGET_API_KEY --source https://api.nuget.org/v3/index.json
   on:
     branch: main
     tags: true
