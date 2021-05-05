@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+[2021-05-05] Version 1.4.1
+--------------------------
+**Library - Chore**
+- [PR #107](https://github.com/sendgrid/smtpapi-csharp/pull/107): manually bump version number. Thanks to [@eshanholtz](https://github.com/eshanholtz)!
+
+
 [2021-05-05] Version 1.4.0
 --------------------------
 **Library - Feature**
