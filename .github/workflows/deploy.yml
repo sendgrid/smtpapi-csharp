@@ -21,6 +21,8 @@ jobs:
         run: |
           make install release
           dotnet nuget push **/*.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
+        env:
+          FrameworkPathOverride: /usr/lib/mono/4.5/
 
   notify-on-failure:
     name: Slack notify on failure

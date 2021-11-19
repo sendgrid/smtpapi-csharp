@@ -24,6 +24,8 @@ jobs:
 
       - name: Build & Test
         run: make install test
+        env:
+          FrameworkPathOverride: /usr/lib/mono/4.5/
       - run: bash <(curl -s https://codecov.io/bash)
 
   notify-on-failure:
