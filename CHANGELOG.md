@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+[2021-12-01] Version 1.4.2
+--------------------------
+**Library - Chore**
+- [PR #108](https://github.com/sendgrid/smtpapi-csharp/pull/108): migrate to GitHub Actions. Thanks to [@eshanholtz](https://github.com/eshanholtz)!
+
+
 [2021-05-05] Version 1.4.1
 --------------------------
 **Library - Chore**
