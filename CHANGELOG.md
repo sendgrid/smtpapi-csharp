@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+[2022-01-12] Version 1.4.3
+--------------------------
+**Library - Chore**
+- [PR #109](https://github.com/sendgrid/smtpapi-csharp/pull/109): update license year. Thanks to [@JenniferMah](https://github.com/JenniferMah)!
+
+
 [2021-12-01] Version 1.4.2
 --------------------------
 **Library - Chore**
