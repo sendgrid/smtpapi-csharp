@@ -1,6 +1,6 @@
 ![SendGrid Logo](twilio_sendgrid_logo.png)
 
-[![Build Status](https://github.com/sendgrid/smtpapi-csharp/actions/workflows/test.yml/badge.svg)](https://github.com/sendgrid/smtpapi-csharp/actions/workflows/test.yml)
+[![Test and Deploy](https://github.com/sendgrid/smtpapi-csharp/actions/workflows/test-and-deploy.yml/badge.svg)](https://github.com/sendgrid/smtpapi-csharp/actions/workflows/test-and-deploy.yml)
 [![Twitter Follow](https://img.shields.io/twitter/follow/sendgrid.svg?style=social&label=Follow)](https://twitter.com/sendgrid)
 [![GitHub contributors](https://img.shields.io/github/contributors/sendgrid/smtpapi-csharp.svg)](https://github.com/sendgrid/smtpapi-csharp/graphs/contributors)
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
