@@ -1,6 +1,13 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+[2022-02-09] Version 1.4.4
+--------------------------
+**Library - Chore**
+- [PR #111](https://github.com/sendgrid/smtpapi-csharp/pull/111): add gh release to workflow. Thanks to [@shwetha-manvinkurke](https://github.com/shwetha-manvinkurke)!
+- [PR #110](https://github.com/sendgrid/smtpapi-csharp/pull/110): merge test and deploy workflows. Thanks to [@shwetha-manvinkurke](https://github.com/shwetha-manvinkurke)!
+
+
 [2022-01-12] Version 1.4.3
 --------------------------
 **Library - Chore**
