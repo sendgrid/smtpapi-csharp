@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+[2022-03-09] Version 1.4.5
+--------------------------
+**Library - Chore**
+- [PR #112](https://github.com/sendgrid/smtpapi-csharp/pull/112): push Datadog Release Metric upon deploy success. Thanks to [@eshanholtz](https://github.com/eshanholtz)!
+
+
 [2022-02-09] Version 1.4.4
 --------------------------
 **Library - Chore**
