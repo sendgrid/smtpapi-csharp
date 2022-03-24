@@ -8,8 +8,6 @@
 **This module helps build SendGrid's SMTP API headers.**
 
 # Announcements
-**The default branch name for this repository has been changed to `main` as of 07/27/2020.**
-
 All updates to this module are documented in our [CHANGELOG](CHANGELOG.md).
 
 # Table of Contents
