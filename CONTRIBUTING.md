@@ -7,10 +7,6 @@ Hello! Thank you for choosing to help contribute to one of the SendGrid open sou
 - [Creating a Pull Request](#creating-a-pull-request)
 - [Code Reviews](#code-reviews)
 
-### Please use our Bug Report Template
-
-In order to make the process easier, we've included a [sample bug report template](ISSUE_TEMPLATE.md).
-
 <a name="improvements-to-the-codebase"></a>
 ## Improvements to the Codebase
 
