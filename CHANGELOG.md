@@ -1,6 +1,15 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+[2022-05-18] Version 1.4.6
+--------------------------
+**Library - Docs**
+- [PR #114](https://github.com/sendgrid/smtpapi-csharp/pull/114): Add Docs Changes to align with SendGrid Support. Thanks to [@garethpaul](https://github.com/garethpaul)!
+
+**Library - Chore**
+- [PR #113](https://github.com/sendgrid/smtpapi-csharp/pull/113): Security upgrade Newtonsoft.Json from 9.0.1 to 13.0.1. Thanks to [@svcprodsec-sendgrid](https://github.com/svcprodsec-sendgrid)!
+
+
 [2022-03-09] Version 1.4.5
 --------------------------
 **Library - Chore**
