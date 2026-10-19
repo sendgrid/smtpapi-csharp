@@ -10,44 +10,70 @@ on:
     - cron: '0 15 * * 1-5'
   workflow_dispatch:
 
+env:
+  ARTIFACTORY_URL: ${{ vars.ARTIFACTORY_URL }}
+
 jobs:
   test:
     name: Test
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-x64
+    if: github.repository_owner == 'sendgrid'
     timeout-minutes: 20
+    permissions:
+      contents: read
+      id-token: write
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout smtpapi-csharp
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
 
       - name: Setup .NET Core SDK
-        uses: actions/setup-dotnet@v1.8.2
+        uses: actions/setup-dotnet@67a3573c9a986a3f9c594539f4ab511d57bb3ce9 # v4
         with:
           dotnet-version: '3.1.x'
+
+      - name: Artifactory OIDC Auth
+        uses: twilio/sdk-actions/artifactory-oidc@e22fa7d16d9cfd4f046cb00f471301f5e0a9c546 # v1
+        with:
+          ecosystem: dotnet
 
       - name: Build & Test
         run: make install test
         env:
           FrameworkPathOverride: /usr/lib/mono/4.5/
-      - run: bash <(curl -s https://codecov.io/bash)
 
   deploy:
     name: Deploy
-    if: success() && github.ref_type == 'tag'
+    if: success() && github.ref_type == 'tag' && github.repository_owner == 'sendgrid'
     needs: [ test ]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-x64
+    environment:
+      name: production
+      url: https://www.nuget.org/packages/SendGrid.SmtpApi/${{ github.ref_name }}
+    permissions:
+      contents: write
+      id-token: write
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout smtpapi-csharp
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        with:
+          # The release action verifies refs/tags/<tag> in the local clone.
+          fetch-depth: 0
 
       - name: Setup .NET Core SDK
-        uses: actions/setup-dotnet@v1.8.2
+        uses: actions/setup-dotnet@67a3573c9a986a3f9c594539f4ab511d57bb3ce9 # v4
         with:
           dotnet-version: '3.1.x'
 
-      - name: Create GitHub Release
-        uses: sendgrid/dx-automator/actions/release@main
+      - name: Artifactory OIDC Auth
+        uses: twilio/sdk-actions/artifactory-oidc@e22fa7d16d9cfd4f046cb00f471301f5e0a9c546 # v1
         with:
-          footer: '**[NuGet](https://www.nuget.org/packages/SendGrid.SmtpApi/${version})**'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ecosystem: dotnet
+
+      - name: Create GitHub Release
+        uses: twilio/sdk-actions/github-release@9b1c3222c9ffe38aadedb11c5b9f5a172b5e9951 # v1
+        with:
+          changelog-file: CHANGELOG.md
+          footer: '**[NuGet](https://www.nuget.org/packages/SendGrid.SmtpApi/${{ github.ref_name }})**'
 
       - name: Publish package to NuGet
         run: |
@@ -56,25 +82,25 @@ jobs:
         env:
           FrameworkPathOverride: /usr/lib/mono/4.5/
 
-      - name: Submit metric to Datadog
-        uses: sendgrid/dx-automator/actions/datadog-release-metric@main
-        env:
-          DD_API_KEY: ${{ secrets.DATADOG_API_KEY }}
+#      - name: Submit metric to Datadog
+#        uses: sendgrid/dx-automator/actions/datadog-release-metric@08b601b726671445abc798ed59881766ec8fefc6 # main
+#        env:
+#          DD_API_KEY: ${{ secrets.DATADOG_API_KEY }}
 
-  notify-on-failure:
-    name: Slack notify on failure
-    if: failure() && github.event_name != 'pull_request' && (github.ref == 'refs/heads/main' || github.ref_type == 'tag')
-    needs: [ test, deploy ]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: rtCamp/action-slack-notify@v2
-        env:
-          SLACK_COLOR: failure
-          SLACK_ICON_EMOJI: ':github:'
-          SLACK_MESSAGE: ${{ format('Test *{0}*, Deploy *{1}*, {2}/{3}/actions/runs/{4}', needs.test.result, needs.deploy.result, github.server_url, github.repository, github.run_id) }}
-          SLACK_TITLE: Action Failure - ${{ github.repository }}
-          SLACK_USERNAME: GitHub Actions
-          SLACK_MSG_AUTHOR: twilio-dx
-          SLACK_FOOTER: Posted automatically using GitHub Actions
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-          MSG_MINIMAL: true
+#  notify-on-failure:
+#    name: Slack notify on failure
+#    if: failure() && github.event_name != 'pull_request' && (github.ref == 'refs/heads/main' || github.ref_type == 'tag')
+#    needs: [ test, deploy ]
+#    runs-on: ubuntu-x64
+#    steps:
+#      - uses: rtCamp/action-slack-notify@e31e87e03dd19038e411e38ae27cbad084a90661 # v2.3.3
+#        env:
+#          SLACK_COLOR: failure
+#          SLACK_ICON_EMOJI: ':github:'
+#          SLACK_MESSAGE: ${{ format('Test *{0}*, Deploy *{1}*, {2}/{3}/actions/runs/{4}', needs.test.result, needs.deploy.result, github.server_url, github.repository, github.run_id) }}
+#          SLACK_TITLE: Action Failure - ${{ github.repository }}
+#          SLACK_USERNAME: GitHub Actions
+#          SLACK_MSG_AUTHOR: twilio-dx
+#          SLACK_FOOTER: Posted automatically using GitHub Actions
+#          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+#          MSG_MINIMAL: true
